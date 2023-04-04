@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-props-no-spreading */
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import settings from './caroussel';
@@ -8,7 +10,7 @@ const Car = ({ cars }) => (
       <div className="caroussel_row">
         {
           cars.map((car) => (
-            <Link id={car.id} to={`car/${car.id}`} key={car.id}>
+            <Link id={car.id} to={`cars/${car.id}`} key={car.id}>
               <div className="car-card">
                 <img src={car.image_url} alt={car.name} />
                 <div className="descript">
@@ -33,7 +35,7 @@ const Car = ({ cars }) => (
       <Slider {...settings}>
         {
             cars.map((car) => (
-              <Link to={`car/${car.id}`} key={car.id}>
+              <Link to={`cars/${car.id}`} key={car.id}>
                 <div className="car-card">
                   <img src={car.image_url} alt={car.name} />
                   <div>
