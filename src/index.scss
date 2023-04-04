@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.home-container {
+  width: 85%;
+  position: absolute;
+  padding: 2rem;
+  right: -4%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+    border-radius: 100%;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  h1 {
+    text-transform: uppercase;
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  h5 {
+    color: #838383;
+    font-size: 12px;
+  }
+
+  .cards-container {
+    width: 80%;
+    margin-top: 5rem;
+
+    .caroussel_row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .car-card {
+      height: 90%;
+      width: 95%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      margin: 10px;
+      overflow: hidden;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .home-container {
+    width: 88%;
+    position: relative;
+    padding-top: 3rem;
+    right: 0;
+
+    .car-card {
+      height: 210px;
+
+      .descript {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .home-container {
+    .cards-container {
+      .caroussel_row {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+  }
+}

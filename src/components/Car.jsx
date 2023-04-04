@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
-import settings from './caroussel';
+import settings from './Carousel';
 
 const Car = ({ cars }) => (
   cars.length <= 2

@@ -18,7 +18,7 @@ const Home = () => {
   return (
     <div className="home-container">
       <h1>Available Cars</h1>
-      <h5>For the best, luxurious and comfortable rides, look no further</h5>
+      <h5>Please select the car model you wish to book</h5>
       <div className="cards-container">
         <Car cars={cars} />
       </div>
