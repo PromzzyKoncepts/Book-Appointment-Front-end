@@ -31,4 +31,5 @@ const carSlice = createSlice({
 
 export const isLoading = (state) => state.cars.loading;
 export const allCars = (state) => state.cars.allCars;
+
 export default carSlice.reducer;
