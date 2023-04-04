@@ -20,7 +20,7 @@ const Car = ({ cars }) => (
                   <div className="model">
                     {car.model}
                   </div>
-                  <p>
+                  <p className="description">
                     {car.description}
                   </p>
                 </div>
