@@ -6,7 +6,6 @@ const CREATE_CAR = 'cars/CREATE_CAR';
 // const DELETE_CAR = 'cars/DELETE_CAR';
 // const FETCH_CAR = 'cars/DELETE_CAR';
 
-
 export const fetchCars = createAsyncThunk(FETCH_CARS, async ({ rejectWithValue }) => {
   try {
     const response = await getCars();
@@ -17,7 +16,10 @@ export const fetchCars = createAsyncThunk(FETCH_CARS, async ({ rejectWithValue }
   }
 });
 
-export const createCar = createAsyncThunk(CREATE_CAR, async ({ car, navigate, toast }, { rejectWithValue }) => {
+export const createCar = createAsyncThunk(CREATE_CAR, async (
+  { car, navigate, toast },
+  { rejectWithValue },
+) => {
   try {
     const response = await addCar(car);
     toast.success('Car created successfully!');
@@ -44,21 +46,24 @@ const carSlice = createSlice({
   extraReducers(builder) {
     builder
       .addCase(fetchCars.pending, (state) => ({ ...state, loading: 'Loading' }))
-      .addCase(fetchCars.fulfilled, (state, action) => {
-        state.loading = 'succeeded',
-        state.allCars = [action.payload]
-      })
-      .addCase(fetchCars.rejected, (state) => { state.loading = 'Failed' })
-      .addCase(createCar.pending, (state) => { state.loading = 'Loading' })
-      .addCase(createCar.fulfilled, (state, action) => {
-        state.allCars = action.payload.data,
-        state.message = action.payload.message,
-        state.loading = action.payload.status
-      })
-      .addCase(createCar.rejected, (state, action) => {
-        state.loading = 'Failed',
-        state.error = action.error.message
-      });
+      .addCase(fetchCars.fulfilled, (state, action) => ({
+        ...state,
+        loading: 'succeeded',
+        allCars: [action.payload],
+      }))
+      .addCase(fetchCars.rejected, (state) => ({ ...state, loading: 'Failed' }))
+      .addCase(createCar.pending, (state) => ({ ...state, loading: 'Loading' }))
+      .addCase(createCar.fulfilled, (state, action) => ({
+        ...state,
+        allCars: action.payload.data,
+        message: action.payload.message,
+        loading: action.payload.status,
+      }))
+      .addCase(createCar.rejected, (state, action) => ({
+        ...state,
+        loading: 'Failed',
+        error: action.error.message,
+      }));
   },
 });
 
