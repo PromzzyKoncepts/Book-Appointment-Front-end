@@ -9,7 +9,7 @@ const CREATE_CAR = 'cars/CREATE_CAR';
 export const fetchCars = createAsyncThunk(FETCH_CARS, async ({ rejectWithValue }) => {
   try {
     const response = await getCars();
-    console.log(response.data);
+    console.log('in console');
     return response.data;
   } catch (error) {
     return rejectWithValue(error.response.data);
