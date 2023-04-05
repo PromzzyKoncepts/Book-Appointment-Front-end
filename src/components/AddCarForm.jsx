@@ -6,4 +6,4 @@ const AddCarForm = () => {
   );
 };
 
-export default AddCarForm
+export default AddCarForm;
