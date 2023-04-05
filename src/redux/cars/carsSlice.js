@@ -6,13 +6,13 @@ const CREATE_CAR = 'cars/CREATE_CAR';
 // const DELETE_CAR = 'cars/DELETE_CAR';
 // const FETCH_CAR = 'cars/DELETE_CAR';
 
-export const fetchCars = createAsyncThunk(FETCH_CARS, async ({ rejectWithValue }) => {
+export const fetchCars = createAsyncThunk(FETCH_CARS, async () => {
   try {
     const response = await getCars();
-    console.log('in console');
+    console.log(response.data);
     return response.data;
   } catch (error) {
-    return rejectWithValue(error.response.data);
+    return error.response.data;
   }
 });
 
@@ -49,7 +49,7 @@ const carSlice = createSlice({
       .addCase(fetchCars.fulfilled, (state, action) => ({
         ...state,
         loading: 'succeeded',
-        allCars: [action.payload],
+        allCars: [action.payload.data],
       }))
       .addCase(fetchCars.rejected, (state) => ({ ...state, loading: 'Failed' }))
       .addCase(createCar.pending, (state) => ({ ...state, loading: 'Loading' }))
