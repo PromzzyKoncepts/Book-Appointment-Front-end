@@ -3,8 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import AddCarForm from '../components/AddCarForm';
 import Car from '../components/Car';
 import Spinner from '../components/Spinner';
-// import { useNavigate } from 'react-router-dom';
-// import settings from '../components/Carousel';
 import { allCars, fetchCars, isLoading } from '../redux/cars/carsSlice';
 
 const Home = () => {
