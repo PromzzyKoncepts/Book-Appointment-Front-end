@@ -13,19 +13,25 @@ export default [
   {
     id: 1,
     icon: <TravelExploreIcon />,
-    text: 'Explore',
-    link: 'explore',
+    text: 'Add New Car',
+    link: 'add_car',
   },
   {
     id: 2,
     icon: <BarChartIcon />,
-    text: 'Statistics',
-    link: 'statistics',
+    text: 'Delete a Car',
+    link: 'delete_car',
   },
   {
     id: 3,
     icon: <SettingsIcon />,
-    text: 'Settings',
-    link: 'settings',
+    text: 'Reservations',
+    link: 'reservations',
+  },
+  {
+    id: 4,
+    icon: <SettingsIcon />,
+    text: 'Reserve',
+    link: 'reserve',
   },
 ];
