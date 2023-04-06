@@ -18,7 +18,7 @@ const AddCarForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form className="add-car-form" onSubmit={handleSubmit(onSubmit)}>
       <input type="text" placeholder="Car Name" {...register('name', { required: true, mainLength: 3 })} />
       <input type="text" placeholder="Car Model" {...register('model', { required: true, mainLength: 3 })} />
       <input type="number" placeholder="Price" {...register('price', { required: true })} />

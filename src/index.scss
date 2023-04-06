@@ -10,8 +10,17 @@
 .App {
   display: flex;
 }
+
 main {
   padding: 10px;
+}
+
+.add-car-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  gap: 2px;
 }
 
 .home-container {

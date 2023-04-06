@@ -1,3 +1,4 @@
+/* stylelint-disable csstree/validator */
 .sidenav {
   width: 250px;
   transition: width 0.3s ease-in-out;
@@ -7,6 +8,7 @@
 }
 
 .sidenavClosed {
+  /* stylelint-disable-next-line property-no-unknown */
   composes: sidenav;
   transition: width 0.3s ease-in-out;
   width: 60px;
