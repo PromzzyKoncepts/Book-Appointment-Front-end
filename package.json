@@ -23,6 +23,7 @@
     "sass": "^1.60.0",
     "slick-carousel": "^1.8.1",
     "uuid": "^9.0.0",
+    "styled-components": "^5.3.9",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
