@@ -23,6 +23,12 @@ main {
   gap: 2px;
 }
 
+.main {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+
 .home-container {
   width: 85%;
   position: absolute;

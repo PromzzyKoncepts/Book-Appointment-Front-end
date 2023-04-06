@@ -18,14 +18,16 @@ const AddCarForm = () => {
   };
 
   return (
-    <form className="add-car-form" onSubmit={handleSubmit(onSubmit)}>
-      <input type="text" placeholder="Car Name" {...register('name', { required: true, mainLength: 3 })} />
-      <input type="text" placeholder="Car Model" {...register('model', { required: true, mainLength: 3 })} />
-      <input type="number" placeholder="Price" {...register('price', { required: true })} />
-      <input type="text" placeholder="Image url" {...register('image_url')} />
-      <textarea type="text" placeholder="Description" {...register('description', { required: true })} />
-      <input type="submit" />
-    </form>
+    <section className="form-page">
+      <form className="add-car-form" onSubmit={handleSubmit(onSubmit)}>
+        <input type="text" placeholder="Car Name" {...register('name', { required: true, mainLength: 3 })} />
+        <input type="text" placeholder="Car Model" {...register('model', { required: true, mainLength: 3 })} />
+        <input type="number" placeholder="Price" {...register('price', { required: true })} />
+        <input type="text" placeholder="Image url" {...register('image_url')} />
+        <textarea type="text" placeholder="Description" {...register('description', { required: true })} />
+        <input type="submit" />
+      </form>
+    </section>
   );
 };
 
