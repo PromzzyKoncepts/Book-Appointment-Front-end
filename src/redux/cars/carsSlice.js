@@ -17,11 +17,11 @@ export const fetchCars = createAsyncThunk(FETCH_CARS, async () => {
 });
 
 export const createCar = createAsyncThunk(CREATE_CAR, async (
-  { car, navigate, toast },
+  { updatedCarData, navigate, toast },
   { rejectWithValue },
 ) => {
   try {
-    const response = await addCar(car);
+    const response = await addCar(updatedCarData);
     toast.success('Car created successfully!');
     navigate('/');
     console.log(response.data);
@@ -49,7 +49,7 @@ const carSlice = createSlice({
       .addCase(fetchCars.fulfilled, (state, action) => ({
         ...state,
         loading: 'succeeded',
-        allCars: [action.payload.data],
+        allCars: action.payload.data,
       }))
       .addCase(fetchCars.rejected, (state) => ({ ...state, loading: 'Failed' }))
       .addCase(createCar.pending, (state) => ({ ...state, loading: 'Loading' }))

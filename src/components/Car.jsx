@@ -5,11 +5,11 @@ import Slider from 'react-slick';
 import settings from './Carousel';
 
 const Car = ({ cars }) => (
-  cars.length <= 2
+  cars?.length <= 2
     ? (
       <div className="caroussel_row">
         {
-          cars.map((car) => (
+          cars?.map((car) => (
             <Link id={car.id} to={`cars/${car.id}`} key={car.id}>
               <div className="car-card">
                 <img src={car.image_url} alt={car.name} />
