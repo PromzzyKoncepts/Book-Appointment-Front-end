@@ -19,7 +19,7 @@
   align-items: center;
   padding: 10px 20px;
   cursor: pointer;
-  color: #ffffff;
+  color: rgb(255, 255, 255);
   text-decoration: none;
   overflow: hidden;
 }
