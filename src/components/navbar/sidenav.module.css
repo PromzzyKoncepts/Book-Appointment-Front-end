@@ -3,7 +3,7 @@
   width: 250px;
   transition: width 0.3s ease-in-out;
   height: 100vh;
-  background-color: rgb(10, 25, 41);
+  background-color: rgb(155, 191, 37);
   padding-top: 28px;
 }
 
@@ -19,7 +19,7 @@
   align-items: center;
   padding: 10px 20px;
   cursor: pointer;
-  color: #b2bac2;
+  color: #ffffff;
   text-decoration: none;
   overflow: hidden;
 }
@@ -36,7 +36,7 @@
   align-self: center;
   align-self: flex-start;
   justify-self: flex-end;
-  color: #b2bac2;
+  color: rgb(255, 255, 255);
   background-color: transparent;
   border: none;
   cursor: pointer;
