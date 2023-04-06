@@ -16,9 +16,9 @@ export const fetchCars = createAsyncThunk(FETCH_CARS, async () => {
   }
 });
 
-export const fetchCar = createAsyncThunk(FETCH_CAR, async () => {
+export const fetchCar = createAsyncThunk(FETCH_CAR, async (id) => {
   try {
-    const response = await getCar();
+    const response = await getCar(id);
     console.log(response.data);
     return response.data;
   } catch (error) {
