@@ -14,7 +14,7 @@ const Home = () => {
     dispatch(fetchCars());
   }, [dispatch]);
 
-  if (isLoading) {
+  if (isLoading === 'loading') {
     return (
       <Spinner />
     );

@@ -7,6 +7,13 @@
   font-family: 'Poppins', sans-serif;
 }
 
+.App {
+  display: flex;
+}
+main {
+  padding: 10px;
+}
+
 .home-container {
   width: 85%;
   position: absolute;
