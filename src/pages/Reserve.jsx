@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ReservePage = ({ username, selectedItem }) => {
+const Reserve = ({ username, selectedItem }) => {
   const [date, setDate] = useState('');
   const [city, setCity] = useState('');
 
@@ -30,4 +30,4 @@ const ReservePage = ({ username, selectedItem }) => {
   );
 };
 
-export default ReservePage;
+export default Reserve;
