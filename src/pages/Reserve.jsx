@@ -1,7 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Reserve = () => (
-  <div>Reserve</div>
-);
-
-export default Reserve;
+const ReservePage = ({ username, selectedItem }) => {
+  const [date, setDate] = useState('');
+  const [city, setCity] = useState('');
