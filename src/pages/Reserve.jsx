@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const Reserve = ({ username, selectedItem }) => {
   const [date, setDate] = useState('');
@@ -12,22 +13,30 @@ const Reserve = ({ username, selectedItem }) => {
 
   return (
     <div>
-      <h1>Reserve {selectedItem}</h1>
+      <h1>
+        Reserve
+        {selectedItem}
+      </h1>
       <form onSubmit={handleSubmit}>
-        <label>
+        <label htmlFor="date">
           Date:
-          <input type="date" value={date} onChange={(event) => setDate(event.target.value)} />
+          <input id="date" type="date" value={date} onChange={(event) => setDate(event.target.value)} />
         </label>
         <br />
-        <label>
+        <label htmlFor="city">
           City:
-          <input type="text" value={city} onChange={(event) => setCity(event.target.value)} />
+          <input id="city" type="text" value={city} onChange={(event) => setCity(event.target.value)} />
         </label>
         <br />
         <button type="submit">Reserve</button>
       </form>
     </div>
   );
+};
+
+Reserve.propTypes = {
+  username: PropTypes.string.isRequired,
+  selectedItem: PropTypes.string.isRequired,
 };
 
 export default Reserve;
