@@ -8,10 +8,11 @@ export const Form = styled.form`
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 30%;
-  padding: 1rem;
+  width: 70%;
+  border-radius: 9px;
+  padding: 30px 0;
   gap: 1rem;
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
       padding: 1.5rem;
       width: 70%
   }
@@ -20,7 +21,7 @@ export const Form = styled.form`
 export const FormDiv = styled.div`
   display: flex;
   justify-content: center;
-  height: 100vh;
+  width: 50%;
   align-items: center;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 `
