@@ -10,9 +10,7 @@ export const login = async (dispatch, user, navigate) => {
     dispatch(loginSuccess(responseData));
     console.log(responseData.data.token, 'fire token here');
     localStorage.setItem('token', responseData.data.token);
-    // Add the user to the database
-    // await userRequest.post('users', { email: user.email });
-    // Redirect the user to the home page
+ 
     navigate('/');
   } catch (error) {
     dispatch(loginFailure());
