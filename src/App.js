@@ -1,7 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Sidenav from './components/navbar/Sidenav';
 import AddCar from './pages/AddCar';
@@ -15,14 +14,12 @@ import Register from './components/auth/Register';
 function App() {
   return (
     <div className="App">
-      <Routes>
-        <Route path="/" element={<Sidenav />
+      <Sidenav />
       <main className="main">
         <Routes>
           <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-      </Routes>} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route exact path="/cars/:id" exactly element={<CarDetails />} />
           <Route path="/add_car" element={<AddCar />} />
           <Route path="/delete_car" element={<DeleteCar />} />
