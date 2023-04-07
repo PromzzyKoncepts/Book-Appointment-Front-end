@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 
 const Reserve = () => {
   const [pickupDate, setPickupDate] = useState('');
-  const [pickupTime, setPickupTime] = useState('');
   const [returnDate, setReturnDate] = useState('');
-  const [returnTime, setReturnTime] = useState('');
   const [name, setName] = useState('');
 
   const handleSubmit = (event) => {
