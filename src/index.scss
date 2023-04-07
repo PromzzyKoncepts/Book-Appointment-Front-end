@@ -119,3 +119,120 @@
     }
   }
 }
+
+.car_container {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  img {
+    width: 62%;
+    height: 50%;
+    display: block;
+    object-fit: contain;
+    margin-left: 0;
+  }
+
+  .car_details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+    .car-header {
+      margin-bottom: 1rem;
+      align-self: flex-end;
+
+      h2 {
+        margin-bottom: 0.8rem;
+        font-size: 3.5rem;
+        text-transform: uppercase;
+      }
+
+      p {
+        color: #9f9f9f;
+        font-size: 12px;
+      }
+    }
+
+    .space-between {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .fee {
+      background-color: #9f9f9f;
+      color: black;
+      padding: .5rem;
+    }
+
+
+    .desc_short {
+      color: #9f9f9f;
+      font-size: 12px;
+    }
+
+    .btn {
+      display: flex;
+      text-decoration: none;
+      justify-content: flex-end;
+    }
+
+    .reserve {
+      width: 140px;
+      height: 45px;
+      font-size: 16px;
+      color: #fff;
+      background-color: rgb(155, 191, 37);
+      border: none;
+      outline: none;
+      border-radius: 45px;
+    }
+  }
+}
+
+.show-description {
+  color: #525a3a;
+  font-size: 14px;
+  font-style: italic;
+  text-align: center;
+  margin: 2rem;
+}
+
+@media screen and (max-width: 640px) {
+  .car_container {
+    width: 100%;
+    right: 0%;
+    flex-direction: column;
+
+    img {
+      margin-top: 1.8rem;
+      width: 50%;
+    }
+
+    .car_details {
+      width: 95%;
+      position: relative;
+
+      h2 {
+        margin-bottom: 0.2rem;
+      }
+
+      .desc_short {
+        position: absolute;
+        left: 12px;
+        bottom: 2rem;
+      }
+
+      .reserve {
+        margin-top: 0.5rem;
+      }
+    }
+  }
+}
+
