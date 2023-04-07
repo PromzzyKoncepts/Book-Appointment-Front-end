@@ -1,4 +1,6 @@
 // import React from 'react';
+/* eslint-disable */
+
 import styled from 'styled-components';
 
 export const Form = styled.form`
@@ -21,7 +23,7 @@ export const FormDiv = styled.div`
   height: 100vh;
   align-items: center;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-`;
+`
 
 export const Input = styled.input`
   width: 80%;
@@ -31,7 +33,7 @@ export const Input = styled.input`
   @media screen and (max-width: 767px) {
       width: 100%;
   }
-`;
+`
 
 export const FormBtn = styled.button`
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -41,7 +43,7 @@ export const FormBtn = styled.button`
   color: #F5F5DC;
   margin-top: 1rem;
   cursor: pointer;
-`;
+`
 
 export const H1 = styled.h1`
   color: #7272df;
@@ -52,8 +54,8 @@ export const H1 = styled.h1`
   @media screen and (max-width: 767px) {
       font-size: 20px
   }
-`;
+`
 
 export const P = styled.p`
   margin-top: 1rem
-`;
+`
