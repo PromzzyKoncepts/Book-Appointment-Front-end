@@ -19,23 +19,23 @@ const Reserve = () => {
         <h2>Make a Reservation</h2>
         <div className="form-group">
           <label htmlFor="pickup-date">Pickup Date:</label>
-          <input type="date" id="pickup-date" value={pickupDate} onChange={(event) => setPickupDate(event.target.value)} required />
+          <input type="date" id="pickup-date" name="pickup-date" value={pickupDate} onChange={(event) => setPickupDate(event.target.value)} required />
         </div>
         <div className="form-group">
           <label htmlFor="pickup-time">Pickup Time:</label>
-          <input type="time" id="pickup-time" value={pickupTime} onChange={(event) => setPickupTime(event.target.value)} required />
+          <input type="time" id="pickup-time" name="pickup-time" value={pickupTime} onChange={(event) => setPickupTime(event.target.value)} required />
         </div>
         <div className="form-group">
           <label htmlFor="return-date">Return Date:</label>
-          <input type="date" id="return-date" value={returnDate} onChange={(event) => setReturnDate(event.target.value)} required />
+          <input type="date" id="return-date" name="return-date" value={returnDate} onChange={(event) => setReturnDate(event.target.value)} required />
         </div>
         <div className="form-group">
           <label htmlFor="return-time">Return Time:</label>
-          <input type="time" id="return-time" value={returnTime} onChange={(event) => setReturnTime(event.target.value)} required />
+          <input type="time" id="return-time" name="return-time" value={returnTime} onChange={(event) => setReturnTime(event.target.value)} required />
         </div>
         <div className="form-group">
           <label htmlFor="name">Name:</label>
-          <input type="text" id="name" value={name} onChange={(event) => setName(event.target.value)} required />
+          <input type="text" id="name" name="name" value={name} onChange={(event) => setName(event.target.value)} required />
         </div>
         <button type="submit">Make Reservation</button>
       </form>
