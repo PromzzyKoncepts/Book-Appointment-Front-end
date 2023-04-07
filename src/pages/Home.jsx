@@ -6,7 +6,9 @@ import { allCars, fetchCars, isLoading } from '../redux/cars/carsSlice';
 
 const Home = () => {
   const cars = useSelector(allCars);
+  const loading = useSelector(isLoading);
   console.log(cars);
+  console.log(loading);
 
   const dispatch = useDispatch();
 
@@ -14,12 +16,11 @@ const Home = () => {
     dispatch(fetchCars());
   }, [dispatch]);
 
-  if (isLoading === 'loading') {
+  if (loading === 'loading') {
     return (
       <Spinner />
     );
   }
-
   return (
     <div className="home-container">
       <h1>Available Cars To book</h1>
