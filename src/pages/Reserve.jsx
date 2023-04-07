@@ -1,42 +1,46 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 
-const Reserve = ({ username, selectedItem }) => {
-  const [date, setDate] = useState('');
-  const [city, setCity] = useState('');
+const Reserve = () => {
+  const [pickupDate, setPickupDate] = useState('');
+  const [pickupTime, setPickupTime] = useState('');
+  const [returnDate, setReturnDate] = useState('');
+  const [returnTime, setReturnTime] = useState('');
+  const [name, setName] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
     // Here you can send the reservation data to your backend or do any other necessary logic
-    console.log(`Reservation for ${selectedItem} on ${date} in ${city} made by ${username}`);
+    console.log(`Reservation for ${name} from ${pickupDate} at ${pickupTime} to ${returnDate} at ${returnTime}`);
   };
 
   return (
-    <div>
-      <h1>
-        Reserve
-        {selectedItem}
-      </h1>
+    <div className="reservation-form">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="date">
-          Date:
-          <input id="date" type="date" value={date} onChange={(event) => setDate(event.target.value)} />
-        </label>
-        <br />
-        <label htmlFor="city">
-          City:
-          <input id="city" type="text" value={city} onChange={(event) => setCity(event.target.value)} />
-        </label>
-        <br />
-        <button type="submit">Reserve</button>
+        <h2>Make a Reservation</h2>
+        <div className="form-group">
+          <label htmlFor="pickup-date">Pickup Date:</label>
+          <input type="date" id="pickup-date" value={pickupDate} onChange={(event) => setPickupDate(event.target.value)} required />
+        </div>
+        <div className="form-group">
+          <label htmlFor="pickup-time">Pickup Time:</label>
+          <input type="time" id="pickup-time" value={pickupTime} onChange={(event) => setPickupTime(event.target.value)} required />
+        </div>
+        <div className="form-group">
+          <label htmlFor="return-date">Return Date:</label>
+          <input type="date" id="return-date" value={returnDate} onChange={(event) => setReturnDate(event.target.value)} required />
+        </div>
+        <div className="form-group">
+          <label htmlFor="return-time">Return Time:</label>
+          <input type="time" id="return-time" value={returnTime} onChange={(event) => setReturnTime(event.target.value)} required />
+        </div>
+        <div className="form-group">
+          <label htmlFor="name">Name:</label>
+          <input type="text" id="name" value={name} onChange={(event) => setName(event.target.value)} required />
+        </div>
+        <button type="submit">Make Reservation</button>
       </form>
     </div>
   );
-};
-
-Reserve.propTypes = {
-  username: PropTypes.string.isRequired,
-  selectedItem: PropTypes.string.isRequired,
 };
 
 export default Reserve;
