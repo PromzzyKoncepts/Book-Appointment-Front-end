@@ -5,54 +5,24 @@ import Slider from 'react-slick';
 import settings from './Carousel';
 
 const Car = ({
-  name, model, price, image_url, description,
+  id, name, model, image_url, description,
 }) => (
-  cars?.length <= 2
-    ? (
-      <div className="caroussel_row">
-        {
-          cars && cars?.map((car) => (
-            <Link id={car.id} to={`cars/${car.id}`} key={car.id}>
-              <div className="car-card">
-                <img src={car.image_url} alt={car.name} />
-                <div className="descript">
-                  <p>
-                    {car.name}
-                  </p>
-                  <div className="model">
-                    {car.model}
-                  </div>
-                  <p className="description">
-                    {car.description}
-                  </p>
-                </div>
-              </div>
-            </Link>
-          ))
-          }
+  <Link id={id} to={`cars/${id}`}>
+    <div className="car-card">
+      <img src={image_url} alt={name} />
+      <div className="descript">
+        <p>
+          {name}
+        </p>
+        <div className="model">
+          {model}
+        </div>
+        <p className="description">
+          {description}
+        </p>
       </div>
-    )
-
-    : (
-      <Slider {...settings}>
-        {
-          cars.map((car) => (
-            <Link to={`cars/${car.id}`} key={car.id}>
-              <div className="car-card">
-                <img src={car.image_url} alt={car.name} />
-                <div>
-                  <p>
-                    {car.model}
-                  </p>
-                </div>
-                <p className="description">
-                  {car.description}
-                </p>
-              </div>
-            </Link>
-          ))
-        }
-      </Slider>
-    ));
+    </div>
+  </Link>
+);
 
 export default Car;
