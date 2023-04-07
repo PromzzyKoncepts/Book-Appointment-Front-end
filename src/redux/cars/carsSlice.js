@@ -1,10 +1,12 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getCars, addCar, getCar, deteleCar } from '../../api/index';
+import {
+  getCars, addCar, getCar, deteleCar,
+} from '../../api/index';
 
 const FETCH_CARS = 'cars/FETCH_CARS';
 const CREATE_CAR = 'cars/CREATE_CAR';
 const DELETE_CAR = 'cars/DELETE_CAR';
-const FETCH_CAR = 'cars/DELETE_CAR';
+const FETCH_CAR = 'cars/FETCH_CAR';
 
 export const fetchCars = createAsyncThunk(FETCH_CARS, async () => {
   try {
@@ -41,8 +43,8 @@ export const createCar = createAsyncThunk(CREATE_CAR, async (
   }
 });
 
-export const removeCar = createAsyncThunk(CREATE_CAR, async (
-id, { rejectWithValue },
+export const removeCar = createAsyncThunk(DELETE_CAR, async (
+  { id, toast }, { rejectWithValue },
 ) => {
   try {
     const response = await deteleCar(id);
@@ -97,7 +99,7 @@ const carSlice = createSlice({
       .addCase(removeCar.pending, (state) => ({ ...state, loading: 'Loading' }))
       .addCase(removeCar.fulfilled, (state, action) => ({
         ...state,
-        allCars: action.payload.data,
+        allCars: state.allCars.filter((item) => item.id !== action.payload.id),
         message: action.payload.message,
         loading: action.payload.status,
       }))
