@@ -11,7 +11,6 @@ import CarDetails from './components/CarDetails';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import React, { useState } from 'react';
-import Reserve from './Reserve';
 
 function App() {
   return (
