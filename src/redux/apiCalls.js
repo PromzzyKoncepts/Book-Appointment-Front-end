@@ -1,14 +1,23 @@
-// import axios from 'axios'
-
 import { publicRequest } from '../allRequests';
-import { loginStart, loginSuccess } from './user/user';
+import { loginStart, loginSuccess, loginFailure } from './user/user';
 
-export const login = async (dispatch, user) => {
+export const login = async (dispatch, user, navigate) => {
   dispatch(loginStart());
-  const res = await publicRequest.post('user/login', user);
-  const responseData = res.data;
-  delete responseData.headers;
-  dispatch(loginSuccess(responseData));
+  try {
+    const res = await publicRequest.post('user/login', user);
+    const responseData = res.data;
+    delete responseData.headers;
+    dispatch(loginSuccess(responseData));
+    console.log(responseData.data.token, 'fire token here');
+    localStorage.setItem('token', responseData.data.token);
+    // Add the user to the database
+    // await userRequest.post('users', { email: user.email });
+    // Redirect the user to the home page
+    navigate('/');
+  } catch (error) {
+    dispatch(loginFailure());
+    throw error;
+  }
 };
 
 export const register = async (dispatch, user) => {

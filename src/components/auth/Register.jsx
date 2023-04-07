@@ -23,7 +23,7 @@ const Register = () => {
       setErr('Name field should be filled')
       return false
     } if (email === '') {
-      setErr('Email field shoulb be filled')
+      setErr('Email field should be filled')
       return false
     } if (!email.match(/^[a-z-A-Z-0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z-0-9-]*\.[a-z]+(?:\.[a-z-0-9-]+)*$/)) {
       setErr('Email should be valid')
@@ -55,13 +55,13 @@ const Register = () => {
 
   return (
     <FormDiv>
-      <Form>
+      <Form onSubmit={registerUser}>
         <H1>Create an account</H1>
         <Input onChange={(e) => setName(e.target.value)} placeholder='Enter name' />
         <Input onChange={(e) => setEmail(e.target.value)} placeholder='Enter email' />
         <Input onChange={(e) => setPassword(e.target.value)} placeholder='Enter password' />
         <Input onChange={(e) => setConfirmPassword(e.target.value)} placeholder='Confirm password' />
-        <FormBtn onClick={registerUser}>Register</FormBtn>
+        <button type='submit'>Register</button>
         {err && setTimeout(() => { setErr(null) }, 3000) && <span>{err}</span>}
         <P>Have an account? <Link to='/login'>Login...</Link></P>
       </Form>
