@@ -20,6 +20,7 @@ const Home = () => {
       <Spinner />
     );
   }
+
   return (
     <div className="home-container">
       <h1>Available Cars To book</h1>

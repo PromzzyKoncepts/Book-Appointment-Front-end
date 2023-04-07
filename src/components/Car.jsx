@@ -9,24 +9,24 @@ const Car = ({ cars }) => (
     ? (
       <div className="caroussel_row">
         {
-            cars?.map((car) => (
-              <Link id={car.id} to={`cars/${car.id}`} key={car.id}>
-                <div className="car-card">
-                  <img src={car.image_url} alt={car.name} />
-                  <div className="descript">
-                    <p>
-                      {car.name}
-                    </p>
-                    <div className="model">
-                      {car.model}
-                    </div>
-                    <p className="description">
-                      {car.description}
-                    </p>
+          cars && cars?.map((car) => (
+            <Link id={car.id} to={`cars/${car.id}`} key={car.id}>
+              <div className="car-card">
+                <img src={car.image_url} alt={car.name} />
+                <div className="descript">
+                  <p>
+                    {car.name}
+                  </p>
+                  <div className="model">
+                    {car.model}
                   </div>
+                  <p className="description">
+                    {car.description}
+                  </p>
                 </div>
-              </Link>
-            ))
+              </div>
+            </Link>
+          ))
           }
       </div>
     )
