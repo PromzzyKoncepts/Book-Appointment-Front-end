@@ -1,8 +1,6 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable camelcase */
 import { Link } from 'react-router-dom';
-import Slider from 'react-slick';
-import settings from './Carousel';
 
 const Car = ({
   id, name, model, image_url, description,

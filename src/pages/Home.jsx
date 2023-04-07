@@ -1,7 +1,10 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import Slider from 'react-slick';
 import Car from '../components/Car';
 import Spinner from '../components/Spinner';
+import settings from '../components/Carousel';
 import { allCars, fetchCars, isLoading } from '../redux/cars/carsSlice';
 
 const Home = () => {
@@ -31,13 +34,13 @@ const Home = () => {
             ? (
               <div className="caroussel_row">
                 {
-                cars?.map((car, i) => <Car key={i} {...car} />)
+                cars && cars?.map((car) => <Car key={car.id} {...car} />)
               }
               </div>
             ) : (
               <Slider {...settings}>
                 {
-                cars?.map((car, i) => <Car key={i} {...car} />)
+                cars && cars?.map((car) => <Car key={car.id} {...car} />)
               }
               </Slider>
             )
