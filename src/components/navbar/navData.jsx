@@ -34,4 +34,16 @@ export default [
     text: 'Reserve',
     link: 'reserve',
   },
+  {
+    id: 5,
+    icon: <SettingsIcon />,
+    text: 'Login',
+    link: 'login',
+  },
+  {
+    id: 6,
+    icon: <SettingsIcon />,
+    text: 'Register',
+    link: 'register',
+  },
 ];
