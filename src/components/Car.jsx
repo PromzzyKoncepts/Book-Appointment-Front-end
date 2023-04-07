@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import settings from './Carousel';
 
-const Car = ({ cars }) => (
+const Car = ({
+  name, model, price, image_url, description,
+}) => (
   cars?.length <= 2
     ? (
       <div className="caroussel_row">
@@ -34,22 +36,22 @@ const Car = ({ cars }) => (
     : (
       <Slider {...settings}>
         {
-              cars.map((car) => (
-                <Link to={`cars/${car.id}`} key={car.id}>
-                  <div className="car-card">
-                    <img src={car.image_url} alt={car.name} />
-                    <div>
-                      <p>
-                        {car.model}
-                      </p>
-                    </div>
-                    <p className="description">
-                      {car.description}
-                    </p>
-                  </div>
-                </Link>
-              ))
-            }
+          cars.map((car) => (
+            <Link to={`cars/${car.id}`} key={car.id}>
+              <div className="car-card">
+                <img src={car.image_url} alt={car.name} />
+                <div>
+                  <p>
+                    {car.model}
+                  </p>
+                </div>
+                <p className="description">
+                  {car.description}
+                </p>
+              </div>
+            </Link>
+          ))
+        }
       </Slider>
     ));
 

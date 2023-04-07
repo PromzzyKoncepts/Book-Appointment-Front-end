@@ -26,7 +26,17 @@ const Home = () => {
       <h1>Available Cars To book</h1>
       <h5>Please select the car model you wish to book</h5>
       <div className="cards-container">
-        <Car cars={cars} />
+        {
+          // cars && cars?.map((car, i) => <Car key={i} {...car} />)
+          cars && cars?.length <= 2
+          ? (
+            <div className="caroussel_row">
+              cars?.map((car, i) => <Car key={i} {...car} />
+            </div>
+          ) : (
+
+          )
+        }
       </div>
     </div>
   );
