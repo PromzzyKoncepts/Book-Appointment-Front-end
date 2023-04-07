@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-// import { useNavigate } from 'react-router-dom';
 import {
   getCars, addCar, getCar, deteleCar,
 } from '../../api/index';
@@ -30,14 +29,13 @@ export const fetchCar = createAsyncThunk(FETCH_CAR, async (id) => {
 });
 
 export const createCar = createAsyncThunk(CREATE_CAR, async (
-  { updatedCarData, toast },
+  { carData, navigate, toast },
   { rejectWithValue },
 ) => {
-  // const navigate = useNavigate();
   try {
-    const response = await addCar(updatedCarData);
+    const response = await addCar(carData);
     toast.success('Car created successfully!');
-    // navigate('/');
+    navigate('/');
     console.log(response.data);
     return response.data;
   } catch (error) {

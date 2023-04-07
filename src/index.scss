@@ -11,22 +11,11 @@
   display: flex;
 }
 
-main {
-  padding: 10px;
-}
-
-.add-car-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-self: center;
-  gap: 2px;
-}
-
 .main {
   display: flex;
   justify-content: center;
   width: 100vw;
+  border: 2px solid red;
 }
 
 .home-container {
