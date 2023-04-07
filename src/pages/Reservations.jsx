@@ -1,40 +1,21 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Reservations = (props) => {
-  const { reservations } = props;
+const Reservations = ({ reservations }) => {
+  if (!reservations || reservations.length === 0) {
+    return <p>You have no reservations</p>;
+  }
 
   return (
-    <div>
-      <h2>Reservations</h2>
+    <ul>
       {reservations.map((reservation) => (
-        <div key={reservation.id}>
-          <p>
-            Reservation ID:
-            {reservation.id}
-          </p>
-          <p>
-            Start Date:
-            {reservation.startDate}
-          </p>
-          <p>
-            Return Date:
-            {reservation.returnDate}
-          </p>
-        </div>
+        <li key={reservation.id}>
+          <p>{reservation.itemName}</p>
+          <p>{reservation.date}</p>
+          <p>{reservation.city}</p>
+        </li>
       ))}
-    </div>
+    </ul>
   );
-};
-
-Reservations.propTypes = {
-  reservations: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      startDate: PropTypes.string.isRequired,
-      returnDate: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
 };
 
 export default Reservations;
