@@ -44,9 +44,9 @@ const Login = () => {
     <FormDiv>
       <Form onSubmit={loginUser}>
         <H1>Login to your account</H1>
-        <Input onChange={(e) => setEmail(e.target.value)} placeholder='Enter email' />
-        <Input onChange={(e) => setPassword(e.target.value)} placeholder='Enter password' />
-        <button type='submit'>Login</button>
+        <Input aria-label="email" onChange={(e) => setEmail(e.target.value)} placeholder='Enter email' />
+        <Input aria-label="password" onChange={(e) => setPassword(e.target.value)} placeholder='Enter password' />
+        <FormBtn type='submit'>Login</FormBtn>
         {err && setTimeout(() => { setErr(null) }, 2500) && <small>{err}</small>}
         <P>Don't have an account? <Link to='/register'>Register...</Link></P>
       </Form>
