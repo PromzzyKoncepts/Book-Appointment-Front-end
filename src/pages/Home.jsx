@@ -7,7 +7,6 @@ import { allCars, fetchCars } from '../redux/cars/carsSlice';
 
 const Home = () => {
   const cars = useSelector(allCars);
-  console.log(cars);
 
   const dispatch = useDispatch();
 
