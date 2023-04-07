@@ -5,9 +5,8 @@ import Car from '../components/Car';
 // import settings from '../components/Carousel';
 import { allCars, fetchCars } from '../redux/cars/carsSlice';
 
-const Home = () => {
+const   Home = () => {
   const cars = useSelector(allCars);
-  console.log(cars);
 
   const dispatch = useDispatch();
 
