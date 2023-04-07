@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getCars, addCar, getCar } from '../../api/index';
+import { getCars, addCar, getCar, deteleCar } from '../../api/index';
 
 const FETCH_CARS = 'cars/FETCH_CARS';
 const CREATE_CAR = 'cars/CREATE_CAR';
-// const DELETE_CAR = 'cars/DELETE_CAR';
+const DELETE_CAR = 'cars/DELETE_CAR';
 const FETCH_CAR = 'cars/DELETE_CAR';
 
 export const fetchCars = createAsyncThunk(FETCH_CARS, async () => {
@@ -33,6 +33,20 @@ export const createCar = createAsyncThunk(CREATE_CAR, async (
   try {
     const response = await addCar(updatedCarData);
     toast.success('Car created successfully!');
+    // navigate('/');
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    return rejectWithValue(error.response.data);
+  }
+});
+
+export const removeCar = createAsyncThunk(CREATE_CAR, async (
+id, { rejectWithValue },
+) => {
+  try {
+    const response = await deteleCar(id);
+    toast.success('Car deleted successfully!');
     // navigate('/');
     console.log(response.data);
     return response.data;
@@ -76,6 +90,18 @@ const carSlice = createSlice({
         loading: action.payload.status,
       }))
       .addCase(createCar.rejected, (state, action) => ({
+        ...state,
+        loading: 'Failed',
+        error: action.error.message,
+      }))
+      .addCase(removeCar.pending, (state) => ({ ...state, loading: 'Loading' }))
+      .addCase(removeCar.fulfilled, (state, action) => ({
+        ...state,
+        allCars: action.payload.data,
+        message: action.payload.message,
+        loading: action.payload.status,
+      }))
+      .addCase(removeCar.rejected, (state, action) => ({
         ...state,
         loading: 'Failed',
         error: action.error.message,
