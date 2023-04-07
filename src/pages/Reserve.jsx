@@ -10,7 +10,7 @@ const Reserve = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Here you can send the reservation data to your backend or do any other necessary logic
-    console.log(`Reservation for ${name} from ${pickupDate} at ${pickupTime} to ${returnDate} at ${returnTime}`);
+    console.log(`Reservation for ${name} from ${pickupDate} to ${returnDate}`);
   };
 
   return (
@@ -22,16 +22,8 @@ const Reserve = () => {
           <input type="date" id="pickup-date" value={pickupDate} onChange={(event) => setPickupDate(event.target.value)} required />
         </div>
         <div className="form-group">
-          <label htmlFor="pickup-time">Pickup Time:</label>
-          <input type="time" id="pickup-time" value={pickupTime} onChange={(event) => setPickupTime(event.target.value)} required />
-        </div>
-        <div className="form-group">
           <label htmlFor="return-date">Return Date:</label>
           <input type="date" id="return-date" value={returnDate} onChange={(event) => setReturnDate(event.target.value)} required />
-        </div>
-        <div className="form-group">
-          <label htmlFor="return-time">Return Time:</label>
-          <input type="time" id="return-time" value={returnTime} onChange={(event) => setReturnTime(event.target.value)} required />
         </div>
         <div className="form-group">
           <label htmlFor="name">Name:</label>
