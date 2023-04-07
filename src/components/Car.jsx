@@ -5,51 +5,51 @@ import Slider from 'react-slick';
 import settings from './Carousel';
 
 const Car = ({ cars }) => (
-  cars.length <= 2
+  cars?.length <= 2
     ? (
       <div className="caroussel_row">
         {
-          cars.map((car) => (
-            <Link id={car.id} to={`cars/${car.id}`} key={car.id}>
-              <div className="car-card">
-                <img src={car.image_url} alt={car.name} />
-                <div className="descript">
-                  <p>
-                    {car.name}
-                  </p>
-                  <div className="model">
-                    {car.model}
+            cars?.map((car) => (
+              <Link id={car.id} to={`cars/${car.id}`} key={car.id}>
+                <div className="car-card">
+                  <img src={car.image_url} alt={car.name} />
+                  <div className="descript">
+                    <p>
+                      {car.name}
+                    </p>
+                    <div className="model">
+                      {car.model}
+                    </div>
+                    <p className="description">
+                      {car.description}
+                    </p>
                   </div>
-                  <p className="description">
-                    {car.description}
-                  </p>
                 </div>
-              </div>
-            </Link>
-          ))
-        }
+              </Link>
+            ))
+          }
       </div>
     )
 
     : (
       <Slider {...settings}>
         {
-            cars.map((car) => (
-              <Link to={`cars/${car.id}`} key={car.id}>
-                <div className="car-card">
-                  <img src={car.image_url} alt={car.name} />
-                  <div>
-                    <p>
-                      {car.model}
+              cars.map((car) => (
+                <Link to={`cars/${car.id}`} key={car.id}>
+                  <div className="car-card">
+                    <img src={car.image_url} alt={car.name} />
+                    <div>
+                      <p>
+                        {car.model}
+                      </p>
+                    </div>
+                    <p className="description">
+                      {car.description}
                     </p>
                   </div>
-                  <p className="description">
-                    {car.description}
-                  </p>
-                </div>
-              </Link>
-            ))
-          }
+                </Link>
+              ))
+            }
       </Slider>
     ));
 

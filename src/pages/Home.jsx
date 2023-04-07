@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Car from '../components/Car';
-// import { useNavigate } from 'react-router-dom';
-// import settings from '../components/Carousel';
-import { allCars, fetchCars } from '../redux/cars/carsSlice';
+import Spinner from '../components/Spinner';
+import { allCars, fetchCars, isLoading } from '../redux/cars/carsSlice';
 
 const Home = () => {
   const cars = useSelector(allCars);
+  const loading = useSelector(isLoading);
+  console.log(loading);
 
   const dispatch = useDispatch();
 
@@ -14,6 +15,11 @@ const Home = () => {
     dispatch(fetchCars());
   }, [dispatch]);
 
+  if (loading === 'loading') {
+    return (
+      <Spinner />
+    );
+  }
   return (
     <div className="home-container">
       <h1>Available Cars To book</h1>

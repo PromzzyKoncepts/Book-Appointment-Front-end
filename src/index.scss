@@ -7,6 +7,28 @@
   font-family: 'Poppins', sans-serif;
 }
 
+.App {
+  display: flex;
+}
+
+main {
+  padding: 10px;
+}
+
+.add-car-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  gap: 2px;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+
 .home-container {
   width: 85%;
   position: absolute;
@@ -65,6 +87,19 @@
       margin: 10px;
       overflow: hidden;
     }
+  }
+}
+
+.car_container {
+  display: flex;
+  gap: 12px;
+
+  img {
+    width: 50%;
+    height: 30%;
+    display: block;
+    object-fit: contain;
+    margin-left: 15%;
   }
 }
 
