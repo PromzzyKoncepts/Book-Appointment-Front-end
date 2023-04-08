@@ -15,25 +15,25 @@ const DeleteCar = () => {
   };
 
   return (
-    <section>
+    <section className="delete-section">
       <h1 className="text-center">Delete Cars</h1>
-      <ul className="cars-container">
+      <div className="car-container">
         {
          Array.isArray(cars) && cars.map((car) => (
-           <li className="card-car" key={car.id}>
-             <img className="car-image" src={car.image_url} alt="car_image" width="100px" />
+           <div className="car-card" key={car.id}>
+             <img src={car.image_url} alt="car_image" width="100px" />
              <div className="car-detail">
-               <span className="car-title">
+               <p className="car-title">
                  {car.name}
                  {' '}
                  {car.model}
-               </span>
+               </p>
                <button className="delete-button" type="button" onClick={() => handleDelete(car.id)}> Delete</button>
              </div>
-           </li>
+           </div>
          ))
         }
-      </ul>
+      </div>
     </section>
   );
 };

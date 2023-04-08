@@ -14,7 +14,7 @@ const CarDetails = () => {
 
   return (
     <>
-      <div className="car_container" key={cardetails.id}>
+      <div className="car-container" key={cardetails.id}>
         <img src={cardetails.image_url} alt={cardetails.name} />
         <div className="car_details">
           <div className="car-header">
