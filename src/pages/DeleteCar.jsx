@@ -19,7 +19,7 @@ const DeleteCar = () => {
       <h1 className="text-center">Delete Cars</h1>
       <ul className="cars-container">
         {
-         cars && cars.map((car) => (
+         Array.isArray(cars) && cars.map((car) => (
            <li className="card-car" key={car.id}>
              <img className="car-image" src={car.image_url} alt="car_image" width="100px" />
              <div className="car-detail">
