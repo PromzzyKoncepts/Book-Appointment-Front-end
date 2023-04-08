@@ -6,14 +6,16 @@
   align-items: center;
 }
 
-.card-left img{
+.card-left img {
   width: 650px;
 }
-.card-left, .car_details {
+
+.card-left,
+.car_details {
   width: 100%;
 }
 
-.card-left h2{
+.card-left h2 {
   background-color: #f4f4f4;
   margin-bottom: 5px;
 }
@@ -22,7 +24,7 @@
   background-color: #f4f4f4;
   height: 84%;
   padding: 8px;
-} 
+}
 
 .car-description {
   overflow-y: scroll;
@@ -37,7 +39,7 @@
   padding: 0 7px;
 }
 
-.car_details h3{
+.car_details h3 {
   background-color: #e6e6e6;
   margin-top: 13px;
 }
@@ -49,7 +51,7 @@
   margin-right: 5px;
 }
 
-.reserve a{
+.reserve a {
   display: flex;
   width: 30%;
   margin: 5px auto;
