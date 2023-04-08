@@ -33,7 +33,7 @@ export const createCar = createAsyncThunk(CREATE_CAR, async (
   try {
     const response = await addCar(updatedCarData);
     toast.success('Car created successfully!');
-    navigate('/');
+    // navigate('/');
 
     return response.data;
   } catch (error) {

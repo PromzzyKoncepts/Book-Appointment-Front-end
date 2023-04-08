@@ -7,7 +7,6 @@ import { removeCar, allCars } from '../redux/cars/carsSlice';
 const DeleteCar = () => {
   const cars = useSelector(allCars);
   const dispatch = useDispatch();
-  console.log(cars);
   // const navigate = useNavigate();
 
   const handleDelete = (id) => {
