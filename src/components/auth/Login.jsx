@@ -3,16 +3,17 @@
 import React, { useState } from 'react'
 import { Form, FormBtn, FormDiv, H1, Input, P } from '../../Styles'
 import { Link, useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { login } from '../../redux/apiCalls'
 import { loginFailure } from '../../redux/user/user'
-const Login = () => {
+const Login = ({ setIsLoggedIn }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [err, setErr] = useState('')
-  const dispatch = useDispatch()
 
+  const dispatch = useDispatch()
   const navigate = useNavigate();
+  const isLoggedIn = useSelector(state => state.user.isLoggedIn);
 
   const loginUser = async (e) => {
     e.preventDefault()
@@ -38,6 +39,11 @@ const Login = () => {
     }
 
     console.log(loginUser());
+    
+  };
+  if (isLoggedIn) {
+    setIsLoggedIn(true);
+    navigate('/');
   }
 
   return (

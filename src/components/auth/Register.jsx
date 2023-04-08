@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { Form, FormBtn, FormDiv, H1, Input, P } from '../../Styles';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/apiCalls';
 import { loginFailure } from '../../redux/user/user';
@@ -13,6 +13,8 @@ const Register = () => {
   const [name, setName] = useState('');
   const [err, setErr] = useState(null);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
 
   const registerUser = async (e) => {
     e.preventDefault()
@@ -50,7 +52,7 @@ const Register = () => {
         dispatch(loginFailure())
         setErr(err.response.data.message)
       }
-    }
+    } navigate('/login')
   }
 
   return (

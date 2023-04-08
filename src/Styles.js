@@ -11,7 +11,7 @@ export const Form = styled.form`
   width: 60%;
   padding: 1rem;
   gap: 1rem;
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
       padding: 1.5rem;
       width: 70%
   }

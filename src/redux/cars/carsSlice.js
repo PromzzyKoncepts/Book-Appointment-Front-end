@@ -11,7 +11,6 @@ const FETCH_CAR = 'cars/FETCH_CAR';
 export const fetchCars = createAsyncThunk(FETCH_CARS, async () => {
   try {
     const response = await getCars();
-    console.log(response.data);
     return response.data;
   } catch (error) {
     return error.response.data;
@@ -21,7 +20,6 @@ export const fetchCars = createAsyncThunk(FETCH_CARS, async () => {
 export const fetchCar = createAsyncThunk(FETCH_CAR, async (id) => {
   try {
     const response = await getCar(id);
-    console.log(response.data);
     return response.data;
   } catch (error) {
     return error.response.data;
@@ -87,7 +85,7 @@ const carSlice = createSlice({
       .addCase(createCar.pending, (state) => ({ ...state, loading: 'Loading' }))
       .addCase(createCar.fulfilled, (state, action) => ({
         ...state,
-        allCars: action.payload.data,
+        allCars: [...state.allCars, action.payload.data],
         message: action.payload.message,
         loading: action.payload.status,
       }))

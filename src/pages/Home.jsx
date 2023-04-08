@@ -10,7 +10,6 @@ import { allCars, fetchCars, isLoading } from '../redux/cars/carsSlice';
 const Home = () => {
   const cars = useSelector(allCars);
   const loading = useSelector(isLoading);
-  console.log(loading);
 
   const dispatch = useDispatch();
 
