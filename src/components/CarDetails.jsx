@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
@@ -15,49 +16,52 @@ const CarDetails = () => {
   return (
     <>
       <div className="car_container" key={cardetails.id}>
-        <img src={cardetails.image_url} alt={cardetails.name} />
+        <div className="card-left">
+          <h2><span className="span"> </span>{cardetails.name}</h2>
+          <img src={cardetails.image_url} alt={cardetails.name} />
+        </div>
         <div className="car_details">
           <div className="car-header">
-            <h2>{cardetails.name}</h2>
-            <p>{cardetails.description}</p>
+            <p><strong>Model:</strong> {cardetails.model}</p>
+            <p className="car-description">{cardetails.description}</p>
           </div>
-          <div className="finance fee">
-            <p>Finance Fee</p>
-            <p>$139</p>
-          </div>
-          <div className="option-fee">
-            <p>Option to purchase Fee</p>
-            <p>$249</p>
-          </div>
-          <div className="total-amount fee">
-            <p>Total amount payable</p>
-            <p>{cardetails.price}</p>
-          </div>
-          <div className="duration">
-            <p>Duration</p>
-            <p>48 Months</p>
-          </div>
-          <div className="availability">
-            <p>Availability:</p>
-            <p>
-              {cardetails.reserved === false ? (
+          <h3><span className="span"> </span>Specifications</h3>
+          <div className="specifications">
+            <div className="total-amount fee">
+              <p><strong>Rent Price:</strong> $ {cardetails.price}</p>
+              <p></p>
+            </div>
+            <div className="finance fee">
+              <p>Finance: $199</p>
+            </div>
+            <div className="option-fee">
+              <p>Damages: $199</p>
+            </div>
+            <div className="duration">
+              <p>Duration: 48 Months</p>
+              <p></p>
+            </div>
+            <div className="availability">
+              <p>Availability: {cardetails.reserved === false ? (
                 <span>Not available</span>
               ) : (
                 <span>available</span>
-              )}
-            </p>
+              )}</p>
+            </div>
           </div>
-          <div className="more-model">
-            <span className="desc_short">We can satisfy your desire!</span>
+            <div className="total-amount fee">
+              <h3>Total: ${cardetails.price + 199 + 299}</h3>
+            </div>
+          <div className="reserve">
+            <Link to="/reservations">
+              <button
+                type="button"
+                className="reserve-btn"
+              >
+                Reserve
+              </button>
+            </Link>
           </div>
-          <Link to="/reservations">
-            <button
-              type="button"
-              className="reserve"
-            >
-              Reserve
-            </button>
-          </Link>
         </div>
       </div>
     </>

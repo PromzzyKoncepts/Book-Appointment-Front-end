@@ -40,12 +40,12 @@ const Car = ({ cars }) => (
                     <img src={car.image_url} alt={car.name} />
                     <div>
                       <p>
+                        {car.name}
+                      </p>
+                      <p>
                         {car.model}
                       </p>
                     </div>
-                    <p className="description">
-                      {car.description}
-                    </p>
                   </div>
                 </Link>
               ))

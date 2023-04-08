@@ -1,3 +1,5 @@
+/* eslint-disable import/no-extraneous-dependencies */
+
 import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import Proptypes from 'prop-types';
