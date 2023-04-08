@@ -1,33 +1,47 @@
 import React, { useState } from 'react';
 
-const Reserve = () => {
-  const [pickupDate, setPickupDate] = useState('');
-  const [returnDate, setReturnDate] = useState('');
-  const [name, setName] = useState('');
+const Reserve = ({ username, selected }) => {
+  const [date, setDate] = useState('');
+  const [city, setCity] = useState('');
+
+  const handleDateChange = (event) => {
+    setDate(event.target.value);
+  };
+
+  const handleCityChange = (event) => {
+    setCity(event.target.value);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Here you can send the reservation data to your backend or do any other necessary logic
-    console.log(`Reservation for ${name} from ${pickupDate} to ${returnDate}`);
+    // Here you can write the logic to save the reservation details to a database or API
   };
 
   return (
-    <div className="reservation-form">
+    <div className="reserve-container">
+      <h2>Reserve</h2>
       <form onSubmit={handleSubmit}>
-        <h2>Make a Reservation</h2>
-        <div className="form-group">
-          <label htmlFor="pickup-date">Pickup Date:</label>
-          <input type="date" id="pickup-date" value={pickupDate} onChange={(event) => setPickupDate(event.target.value)} required />
-        </div>
-        <div className="form-group">
-          <label htmlFor="return-date">Return Date:</label>
-          <input type="date" id="return-date" value={returnDate} onChange={(event) => setReturnDate(event.target.value)} required />
-        </div>
-        <div className="form-group">
-          <label htmlFor="name">Name:</label>
-          <input type="text" id="name" value={name} onChange={(event) => setName(event.target.value)} required />
-        </div>
-        <button type="submit">Make Reservation</button>
+        <label>
+          Username:
+          <input type="text" value={username} readOnly />
+        </label>
+        <br />
+        <label>
+          Item:
+          <input type="text" value={selected} readOnly />
+        </label>
+        <br />
+        <label>
+          Date:
+          <input type="date" value={date} onChange={handleDateChange} required />
+        </label>
+        <br />
+        <label>
+          City:
+          <input type="text" value={city} onChange={handleCityChange} required />
+        </label>
+        <br />
+        <button type="submit">Reserve Now</button>
       </form>
     </div>
   );
