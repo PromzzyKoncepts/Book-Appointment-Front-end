@@ -40,16 +40,4 @@ export default [
     link: 'reserve',
     isProtected: true,
   },
-  {
-    id: 5,
-    icon: <SettingsIcon />,
-    text: 'Login',
-    link: 'login',
-  },
-  {
-    id: 6,
-    icon: <SettingsIcon />,
-    text: 'Register',
-    link: 'register',
-  },
 ];
