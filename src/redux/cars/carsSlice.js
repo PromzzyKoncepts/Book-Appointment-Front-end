@@ -27,13 +27,14 @@ export const fetchCar = createAsyncThunk(FETCH_CAR, async (id) => {
 });
 
 export const createCar = createAsyncThunk(CREATE_CAR, async (
-  { updatedCarData, navigate, toast },
+  { updatedCarData, toast },
   { rejectWithValue },
 ) => {
   try {
     const response = await addCar(updatedCarData);
     toast.success('Car created successfully!');
     navigate('/');
+
     return response.data;
   } catch (error) {
     return rejectWithValue(error.response.data);
