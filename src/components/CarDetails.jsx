@@ -62,6 +62,14 @@ const CarDetails = () => {
               </button>
             </Link>
           </div>
+          <Link to="/reservations" className="btn">
+            <button
+              type="button"
+              className="reserve"
+            >
+              Reserve
+            </button>
+          </Link>
         </div>
       </div>
     </>

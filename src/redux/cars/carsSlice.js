@@ -27,14 +27,14 @@ export const fetchCar = createAsyncThunk(FETCH_CAR, async (id) => {
 });
 
 export const createCar = createAsyncThunk(CREATE_CAR, async (
-  { updatedCarData, toast },
+  { carData, navigate, toast },
   { rejectWithValue },
 ) => {
   try {
-    const response = await addCar(updatedCarData);
+    const response = await addCar(carData);
     toast.success('Car created successfully!');
-    // navigate('/');
-
+    navigate('/');
+    console.log(response.data);
     return response.data;
   } catch (error) {
     return rejectWithValue(error.response.data);
@@ -42,12 +42,13 @@ export const createCar = createAsyncThunk(CREATE_CAR, async (
 });
 
 export const removeCar = createAsyncThunk(DELETE_CAR, async (
-  { id, toast }, { rejectWithValue },
+  { id, navigate, toast }, { rejectWithValue },
 ) => {
   try {
     const response = await deteleCar(id);
     toast.success('Car deleted successfully!');
-    // navigate('/');
+    navigate('/');
+    console.log(response.data);
     return response.data;
   } catch (error) {
     return rejectWithValue(error.response.data);

@@ -59,11 +59,11 @@ const Register = () => {
     <FormDiv>
       <Form onSubmit={registerUser}>
         <H1>Create an account</H1>
-        <Input onChange={(e) => setName(e.target.value)} placeholder='Enter name' />
-        <Input onChange={(e) => setEmail(e.target.value)} placeholder='Enter email' />
-        <Input onChange={(e) => setPassword(e.target.value)} placeholder='Enter password' />
-        <Input onChange={(e) => setConfirmPassword(e.target.value)} placeholder='Confirm password' />
-        <button type='submit'>Register</button>
+        <Input aria-label="name" onChange={(e) => setName(e.target.value)} placeholder='Enter name' />
+        <Input aria-label="email" onChange={(e) => setEmail(e.target.value)} placeholder='Enter email' />
+        <Input aria-label="password" onChange={(e) => setPassword(e.target.value)} placeholder='Enter password' />
+        <Input aria-label="confirm password" onChange={(e) => setConfirmPassword(e.target.value)} placeholder='Confirm password' />
+        <FormBtn type='submit'>Register</FormBtn>
         {err && setTimeout(() => { setErr(null) }, 3000) && <span>{err}</span>}
         <P>Have an account? <Link to='/login'>Login...</Link></P>
       </Form>

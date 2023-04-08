@@ -1,38 +1,39 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { removeCar, allCars } from '../redux/cars/carsSlice';
-// import { useNavigate } from 'react-router-dom';
 
 const DeleteCar = () => {
   const cars = useSelector(allCars);
+
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleDelete = (id) => {
-    dispatch(removeCar({ id, toast }));
+    dispatch(removeCar({ id, navigate, toast }));
   };
 
   return (
-    <section>
+    <section className="delete-section">
       <h1 className="text-center">Delete Cars</h1>
-      <ul className="cars-container">
+      <div className="car-container">
         {
-          cars.map((car) => (
-            <li className="card-car" key={car.id}>
-              <img className="car-image" src={car.image_url} alt="car_image" width="100px" />
-              <div className="car-detail">
-                <span className="car-title">
-                  {car.name}
-                  {' '}
-                  {car.model}
-                </span>
-                <button className="delete-button" type="button" onClick={() => handleDelete(car.id)}> Delete</button>
-              </div>
-            </li>
-          ))
+         Array.isArray(cars) && cars.map((car) => (
+           <div className="car-card" key={car.id}>
+             <img src={car.image_url} alt="car_image" width="100px" />
+             <div className="car-detail">
+               <p className="car-title">
+                 {car.name}
+                 {' '}
+                 {car.model}
+               </p>
+               <button className="delete-button" type="button" onClick={() => handleDelete(car.id)}> Delete</button>
+             </div>
+           </div>
+         ))
         }
-      </ul>
+      </div>
     </section>
   );
 };

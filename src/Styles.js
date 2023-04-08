@@ -8,9 +8,8 @@ export const Form = styled.form`
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 70%;
-  border-radius: 9px;
-  padding: 30px 0;
+  width: 60%;
+  padding: 1rem;
   gap: 1rem;
   @media screen and (max-width: 768px) {
       padding: 1.5rem;
@@ -21,7 +20,8 @@ export const Form = styled.form`
 export const FormDiv = styled.div`
   display: flex;
   justify-content: center;
-  width: 50%;
+  height: 80vh;
+  width: 80%;
   align-items: center;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 `
@@ -35,11 +35,21 @@ export const Input = styled.input`
       width: 100%;
   }
 `
+export const Textarea = styled.textarea`
+  width: 80%;
+  border: none;
+  border-bottom: 1px solid black;
+  padding: 0.5rem;
+  @media screen and (max-width: 767px) {
+      width: 100%;
+  }
+`
 
 export const FormBtn = styled.button`
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   padding: 0.5rem;
   border: none;
+  width: 7rem;
   font - size: 14px;
   color: #F5F5DC;
   margin-top: 1rem;
