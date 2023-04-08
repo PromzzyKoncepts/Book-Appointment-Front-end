@@ -48,4 +48,3 @@ const Reserve = ({ username, selected }) => {
 };
 
 export default Reserve;
-
