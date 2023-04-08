@@ -14,30 +14,30 @@ const CarDetails = () => {
 
   return (
     <>
-      <div className="car_container" key={cardetails.id}>
+      <div className="car-container" key={cardetails.id}>
         <img src={cardetails.image_url} alt={cardetails.name} />
         <div className="car_details">
           <div className="car-header">
             <h2>{cardetails.name}</h2>
             <p>{cardetails.description}</p>
           </div>
-          <div className="finance fee">
+          <div className="space-between fee">
             <p>Finance Fee</p>
             <p>$139</p>
           </div>
-          <div className="option-fee">
+          <div className="space-between">
             <p>Option to purchase Fee</p>
             <p>$249</p>
           </div>
-          <div className="total-amount fee">
+          <div className="space-between fee">
             <p>Total amount payable</p>
             <p>{cardetails.price}</p>
           </div>
-          <div className="duration">
+          <div className="space-between">
             <p>Duration</p>
             <p>48 Months</p>
           </div>
-          <div className="availability">
+          <div className="space-between">
             <p>Availability:</p>
             <p>
               {cardetails.reserved === false ? (
@@ -50,7 +50,7 @@ const CarDetails = () => {
           <div className="more-model">
             <span className="desc_short">We can satisfy your desire!</span>
           </div>
-          <Link to="/reservations">
+          <Link to="/reservations" className="btn">
             <button
               type="button"
               className="reserve"
