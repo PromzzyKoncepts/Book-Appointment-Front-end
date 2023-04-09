@@ -1,44 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { isLoading, fetchReservations } from '../redux/reservations/reservationsSlice';
 
-const Reservations = ({ username }) => {
-  const [reservations, setReservations] = useState([]);
+const Reservations = () => {
+  const reservations = useSelector((state) => state.reservations.allReservations);
+  const loading = useSelector(isLoading);
+  
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    // Here you can write the logic to fetch the user's reservations from a database or API
-    // For this example, we will use a static array of reservations
-    const staticReservations = [
-      { id: 1, item: 'Vespa Primavera', date: '2023-04-10', city: 'Rome' },
-      { id: 2, item: 'Vespa Sprint', date: '2023-04-15', city: 'Paris' },
-      { id: 3, item: 'Vespa GTS', date: '2023-04-20', city: 'Barcelona' },
-    ];
-
-    // Filter reservations for the given username
-    const userReservations = staticReservations.filter((reservation) => reservation.username === username);
-
-    // Set the filtered reservations to the state
-    setReservations(userReservations);
-  }, [username]);
+    dispatch(fetchReservations());
+  }, [dispatch]);
 
   return (
     <div className="my-reservations-container">
       <h2>My Reservations</h2>
-      {reservations.length === 0 ? (
-        <p>You don't have any reservations yet.</p>
+      {reservations?.length === 0 ? (
+        <p>You do not have any reservations yet.</p>
       ) : (
         <table>
           <thead>
             <tr>
-              <th>Item</th>
-              <th>Date</th>
               <th>City</th>
+              <th>Pickup Date</th>
+              <th>Return Date</th>
             </tr>
           </thead>
           <tbody>
-            {reservations.map((reservation) => (
+            {Array.isArray(reservations) && reservations.map((reservation) => (
               <tr key={reservation.id}>
-                <td>{reservation.item}</td>
-                <td>{reservation.date}</td>
                 <td>{reservation.city}</td>
+                <td>{reservation.pickup_date}</td>
+                <td>{reservation.return_date}</td>
               </tr>
             ))}
           </tbody>
