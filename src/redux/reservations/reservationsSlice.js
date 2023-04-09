@@ -30,7 +30,7 @@ export const createReservation = createAsyncThunk(ADD_RESERVATION, async (
 ) => {
   try {
     const response = await addReservation(reservationData);
-    toast.success('Car created successfully!');
+    toast.success('Reservation created successfully!');
     navigate('/');
     console.log(response.data);
     return response.data;
@@ -38,20 +38,6 @@ export const createReservation = createAsyncThunk(ADD_RESERVATION, async (
     return rejectWithValue(error.response.data);
   }
 });
-
-// export const removeCar = createAsyncThunk(DELETE_CAR, async (
-//   { id, navigate, toast }, { rejectWithValue },
-// ) => {
-//   try {
-//     const response = await deteleCar(id);
-//     toast.success('Car deleted successfully!');
-//     navigate('/');
-//     console.log(response.data);
-//     return response.data;
-//   } catch (error) {
-//     return rejectWithValue(error.response.data);
-//   }
-// });
 
 const initialState = {
   allReservations: [],
