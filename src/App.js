@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -12,19 +13,40 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const token = localStorage.getItem('token');
+
+  useEffect(() => {
+    if (token) {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
   return (
     <div className="App">
-      <Sidenav />
+      <Sidenav isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <main className="main">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route exact path="/cars/:id" exactly element={<CarDetails />} />
-          <Route path="/add_car" element={<AddCar />} />
-          <Route path="/delete_car" element={<DeleteCar />} />
-          <Route path="/reservations" element={<Reservations />} />
-          <Route path="/reserve" element={<Reserve />} />
+          {
+            isLoggedIn
+              ? (
+                <>
+                  <Route exact path="/cars/:id" exactly element={<CarDetails />} />
+                  <Route path="/add_car" element={<AddCar />} />
+                  <Route path="/delete_car" element={<DeleteCar />} />
+                  <Route path="/reservations" element={<Reservations />} />
+                  <Route path="/reserve" element={<Reserve />} />
+                </>
+              )
+              : (
+                <>
+                  <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
+                  <Route path="/register" element={<Register />} />
+                </>
+              )
+          }
         </Routes>
       </main>
       <ToastContainer />
