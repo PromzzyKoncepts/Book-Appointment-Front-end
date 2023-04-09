@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getReservations } from '../../api/index';
+import { getReservations, addReservation } from '../../api/index';
 
 const FETCH_RESERVATIONS = 'reservations/RESERVATIONS';
-// const ADD_RESERVATION = 'reservations/ADD_RESERVATION';
+const ADD_RESERVATION = 'reservations/ADD_RESERVATION';
 // const DELETE_RESERVATION = 'reservations/RESERVATION';
 
 export const fetchReservations = createAsyncThunk(FETCH_RESERVATIONS, async () => {
@@ -24,20 +24,20 @@ export const fetchReservations = createAsyncThunk(FETCH_RESERVATIONS, async () =
 //   }
 // });
 
-// export const createCar = createAsyncThunk(CREATE_CAR, async (
-//   { carData, navigate, toast },
-//   { rejectWithValue },
-// ) => {
-//   try {
-//     const response = await addCar(carData);
-//     toast.success('Car created successfully!');
-//     navigate('/');
-//     console.log(response.data);
-//     return response.data;
-//   } catch (error) {
-//     return rejectWithValue(error.response.data);
-//   }
-// });
+export const createReservation = createAsyncThunk(ADD_RESERVATION, async (
+  { carData, navigate, toast },
+  { rejectWithValue },
+) => {
+  try {
+    const response = await addReservation(carData);
+    toast.success('Car created successfully!');
+    navigate('/');
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    return rejectWithValue(error.response.data);
+  }
+});
 
 // export const removeCar = createAsyncThunk(DELETE_CAR, async (
 //   { id, navigate, toast }, { rejectWithValue },
@@ -72,7 +72,19 @@ const reservationsSlice = createSlice({
         loading: 'succeeded',
         allReservations: action.payload.data,
       }))
-      .addCase(fetchReservations.rejected, (state) => ({ ...state, loading: 'failed' }));
+      .addCase(fetchReservations.rejected, (state) => ({ ...state, loading: 'failed' }))
+      .addCase(createReservation.pending, (state) => ({ ...state, loading: 'Loading' }))
+      .addCase(createReservation.fulfilled, (state, action) => ({
+        ...state,
+        allCars: [...state.allReservations, action.payload.data],
+        message: action.payload.message,
+        loading: action.payload.status,
+      }))
+      .addCase(createReservation.rejected, (state, action) => ({
+        ...state,
+        loading: 'Failed',
+        error: action.error.message,
+      }));
   },
 });
 
