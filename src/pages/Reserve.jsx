@@ -1,29 +1,41 @@
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable camelcase */
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
+import DatePicker from 'react-date-picker';
+import 'react-date-picker/dist/DatePicker.css';
 import { toast } from 'react-toastify';
-import { allCars } from '../redux/cars/carsSlice'
+import { allCars } from '../redux/cars/carsSlice';
 import { createReservation } from '../redux/reservations/reservationsSlice';
+import {
+  Form, FormBtn, FormDiv, H1, Input,
+} from '../Styles';
 
 const Reserve = () => {
   const cars = useSelector(allCars);
 
-  const currentUserData = localStorage.getItem('user');
+  const currentUserData = JSON.parse(localStorage.getItem('user'));
   const currentUser = currentUserData.user;
 
+  const [pickupDate, setPickupDate] = useState(new Date());
+  const [returnDate, setReturnDate] = useState(new Date());
+  const [carId, setCarId] = useState(1);
+
   const [reservationData, setreservationData] = useState({
-    pickup_date: '',
-    return_date: '',
+    pickup_date: pickupDate,
+    return_date: returnDate,
     city: '',
-    user_id: 0,
-    car_id: 0,
+    user_id: currentUser.id,
+    car_id: carId,
   });
+
+  console.log(carId);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const {
-    pickup_date, return_date, city, car_id } = reservationData;
+  const { city } = reservationData;
 
   const handleClear = () => {
     setreservationData({
@@ -46,49 +58,32 @@ const Reserve = () => {
     setreservationData({ ...reservationData, [name]: value });
   };
 
+  const handleCarIdChange = (e) => {
+    setCarId(e.target.value);
+  };
+
   return (
-    <div className="reserve-container">
-      <h2>Reserve</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Username:
-          <input type="text" aria-label="name" value={currentUser.name} readOnly />
-        </label>
-        <br />
-        <div>
+    <FormDiv>
+      <H1>Reserve</H1>
+      <Form onSubmit={handleSubmit}>
+        <Input type="text" name={currentUser.name} placeholder="user" aria-label="name" value={currentUser.name} readOnly />
         <select
-          className="form-control"
           aria-label="Select label"
-          name="car"
-          onChange={onInputChange}>
-          <option value="choose" disabled selected="selected">
-            -- Select a car --
-          </option>
+          value={carId}
+          onChange={handleCarIdChange}
+        >
           { Array.isArray(cars) && cars?.map((car) => (
-            <option name="car" value={car_id}>
-              {car.id} 
+            <option key={car.id} value={car.id}>
+              {car.name}
             </option>
           ))}
         </select>
-      </div>
-        <br />
-        <label>
-          Start date:
-          <input type="date" aria-label="date" name="date" value={pickup_date} onChange={onInputChange} required />
-        </label>
-        <label>
-          End date:
-          <input type="date" aria-label="date" name="date" value={return_date} onChange={onInputChange} required />
-        </label>
-        <br />
-        <label>
-          City:
-          <input type="text" aria-label="city" name="city" value={city} onChange={onInputChange} required />
-        </label>
-        <br />
-        <button type="submit">Reserve Now</button>
-      </form>
-    </div>
+        <DatePicker onChange={setPickupDate} value={pickupDate} />
+        <DatePicker onChange={setReturnDate} value={returnDate} />
+        <Input type="text" aria-label="city" name="city" value={city} onChange={onInputChange} required />
+        <FormBtn type="submit">Reserve Now</FormBtn>
+      </Form>
+    </FormDiv>
   );
 };
 

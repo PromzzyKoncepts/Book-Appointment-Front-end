@@ -5,8 +5,7 @@ import { isLoading, fetchReservations } from '../redux/reservations/reservations
 const Reservations = () => {
   const reservations = useSelector((state) => state.reservations.allReservations);
   const loading = useSelector(isLoading);
-  console.log(loading);
-  console.log(reservations);
+  
   const dispatch = useDispatch();
 
   useEffect(() => {

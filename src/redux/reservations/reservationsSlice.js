@@ -8,7 +8,7 @@ const ADD_RESERVATION = 'reservations/ADD_RESERVATION';
 export const fetchReservations = createAsyncThunk(FETCH_RESERVATIONS, async () => {
   try {
     const response = await getReservations();
-    console.log(response.data)
+    console.log(response.data);
     return response.data;
   } catch (error) {
     return error.response.data;
@@ -25,11 +25,11 @@ export const fetchReservations = createAsyncThunk(FETCH_RESERVATIONS, async () =
 // });
 
 export const createReservation = createAsyncThunk(ADD_RESERVATION, async (
-  { carData, navigate, toast },
+  { reservationData, navigate, toast },
   { rejectWithValue },
 ) => {
   try {
-    const response = await addReservation(carData);
+    const response = await addReservation(reservationData);
     toast.success('Car created successfully!');
     navigate('/');
     console.log(response.data);
