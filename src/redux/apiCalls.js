@@ -19,7 +19,8 @@ export const login = async (dispatch, user, navigate) => {
 
 export const register = async (dispatch, user) => {
   dispatch(loginStart());
-  const res = await publicRequest.post('users', user);
+  const res = await publicRequest.post('/users', user);
+  console.log(res);
   const responseData = res.data;
   delete responseData.headers;
   dispatch(loginSuccess(responseData));
