@@ -11,7 +11,7 @@ const Reservations = () => {
   const currentUser = currentUserData.user;
 
   const userReservations = reservations.filter((reservation) => reservation.user_id === currentUser.id);
-  
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -23,7 +23,6 @@ const Reservations = () => {
       <Spinner />
     );
   }
-
 
   return (
     <div className="my-reservations-container">

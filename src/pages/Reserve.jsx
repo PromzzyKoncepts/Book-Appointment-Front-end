@@ -51,9 +51,8 @@ const Reserve = () => {
       [name]: value,
     });
   };
-   
-  console.log(reservationData);
 
+  console.log(reservationData);
 
   const handleCarIdChange = (e) => {
     setCarId(e.target.value);
