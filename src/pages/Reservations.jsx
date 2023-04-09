@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { isLoading, fetchReservations } from '../redux/reservations/reservationsSlice';
+import { fetchReservations } from '../redux/reservations/reservationsSlice';
 
 const Reservations = () => {
   const reservations = useSelector((state) => state.reservations.allReservations);
-  const loading = useSelector(isLoading);
+  // const loading = useSelector(isLoading);
 
   const dispatch = useDispatch();
 
