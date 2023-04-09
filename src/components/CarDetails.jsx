@@ -51,7 +51,7 @@ const CarDetails = () => {
           <div className="more-model">
             <span className="desc_short">We can satisfy your desire!</span>
           </div>
-          <Link to="/reservations" className="btn">
+          <Link to="/reserve" className="btn">
             <button
               type="button"
               className="reserve"
