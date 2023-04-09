@@ -30,8 +30,6 @@ const Reserve = () => {
     car_id: carId,
   });
 
-  console.log(carId);
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -46,20 +44,30 @@ const Reserve = () => {
     });
   };
 
+  const onInputChange = (e) => {
+    const { name, value } = e.target;
+    setreservationData({
+      ...reservationData,
+      [name]: value,
+    });
+  };
+   
+  console.log(reservationData);
+
+
+  const handleCarIdChange = (e) => {
+    setCarId(e.target.value);
+    setreservationData({
+      ...reservationData,
+      car_id: carId,
+    });
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
     dispatch(createReservation({ reservationData, navigate, toast }));
     handleClear();
-  };
-
-  const onInputChange = (e) => {
-    const { name, value } = e.target;
-    setreservationData({ ...reservationData, [name]: value });
-  };
-
-  const handleCarIdChange = (e) => {
-    setCarId(e.target.value);
   };
 
   return (

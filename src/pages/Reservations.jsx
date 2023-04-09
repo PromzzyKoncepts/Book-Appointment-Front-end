@@ -1,16 +1,29 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchReservations } from '../redux/reservations/reservationsSlice';
+import { isLoading, fetchReservations } from '../redux/reservations/reservationsSlice';
+import Spinner from '../components/Spinner';
 
 const Reservations = () => {
   const reservations = useSelector((state) => state.reservations.allReservations);
-  // const loading = useSelector(isLoading);
+  const loading = useSelector(isLoading);
 
+  const currentUserData = JSON.parse(localStorage.getItem('user'));
+  const currentUser = currentUserData.user;
+
+  const userReservations = reservations.filter((reservation) => reservation.user_id === currentUser.id);
+  
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchReservations());
   }, [dispatch]);
+
+  if (loading === 'loading') {
+    return (
+      <Spinner />
+    );
+  }
+
 
   return (
     <div className="my-reservations-container">
@@ -27,7 +40,7 @@ const Reservations = () => {
             </tr>
           </thead>
           <tbody>
-            {Array.isArray(reservations) && reservations.map((reservation) => (
+            {Array.isArray(userReservations) && userReservations.map((reservation) => (
               <tr key={reservation.id}>
                 <td>{reservation.city}</td>
                 <td>{reservation.pickup_date}</td>
