@@ -6,14 +6,12 @@ import Spinner from '../components/Spinner';
 const Reservations = () => {
   const reservations = useSelector((state) => state.reservations.allReservations);
   const loading = useSelector(isLoading);
-
   const currentUserData = JSON.parse(localStorage.getItem('user'));
   const currentUser = currentUserData.user;
-
-  const userReservations = reservations.filter((reservation) => reservation.user_id === currentUser.id);
-
+  const userReservations = reservations.filter(
+    (reservation) => reservation.user_id === currentUser.id,
+  );
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(fetchReservations());
   }, [dispatch]);
