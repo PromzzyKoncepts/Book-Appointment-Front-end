@@ -87,8 +87,8 @@ const Reserve = () => {
         </select>
         <DatePicker onChange={setPickupDate} value={pickupDate} />
         <DatePicker onChange={setReturnDate} value={returnDate} />
-        <Input type="text" aria-label="city" name="city" value={city} onChange={onInputChange} required />
-        <FormBtn type="submit" placeholder="Add your city">Reserve Now</FormBtn>
+        <Input type="text" placeholder="Add your city" aria-label="city" name="city" value={city} onChange={onInputChange} required />
+        <FormBtn type="submit">Reserve Now</FormBtn>
       </Form>
     </FormDiv>
   );
