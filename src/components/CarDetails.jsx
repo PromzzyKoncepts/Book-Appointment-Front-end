@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { fetchCar, car } from '../redux/cars/carsSlice';
+import { fetchCar,getCarId, car } from '../redux/cars/carsSlice';
 
 const CarDetails = () => {
   const dispatch = useDispatch();
@@ -12,6 +12,10 @@ const CarDetails = () => {
   useEffect(() => {
     dispatch(fetchCar(carId));
   }, [dispatch]);
+
+  const handleClick = () => {
+    dispatch(getCarId(carId));
+  };
 
   return (
     <>
@@ -51,10 +55,11 @@ const CarDetails = () => {
           <div className="more-model">
             <span className="desc_short">We can satisfy your desire!</span>
           </div>
-          <Link to="/reserve" className="btn">
+          <Link to="/book_car" className="btn">
             <button
               type="button"
               className="reserve"
+              onClick={handleClick}
             >
               Reserve
             </button>
