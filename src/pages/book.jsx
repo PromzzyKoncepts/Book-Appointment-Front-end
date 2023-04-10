@@ -70,7 +70,7 @@ const Book = () => {
         <Input type="text" name={carObject[0].name} placeholder="car name" aria-label="car name" value={carObject[0].name} readOnly />
         <DatePicker onChange={setPickupDate} value={pickupDate} />
         <DatePicker onChange={setReturnDate} value={returnDate} />
-        <Input type="text" aria-label="city" name="city" value={city} onChange={onInputChange} required />
+        <Input type="text" aria-label="city" placeholder="Add your city" name="city" value={city} onChange={onInputChange} required />
         <FormBtn type="submit">Reserve Now</FormBtn>
       </Form>
     </FormDiv>
