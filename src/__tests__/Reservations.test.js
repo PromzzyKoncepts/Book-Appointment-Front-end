@@ -9,7 +9,7 @@ describe('Reservations component', () => {
     render(
       <Provider store={store}>
         <Reservations />
-      </Provider>
+      </Provider>,
     );
     const heading = screen.getByRole('heading', { level: 2 });
     expect(heading.textContent).toBe('My Reservations');
