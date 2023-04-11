@@ -1,4 +1,4 @@
-// const polyfill = require('polyfill');
+const polyfill = require('polyfill');
 require('jest-localstorage-mock');
 
 global.matchMedia = global.matchMedia

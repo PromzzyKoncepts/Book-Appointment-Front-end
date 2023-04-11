@@ -72,7 +72,7 @@ const Reserve = () => {
       <FormDiv>
         <Form onSubmit={handleSubmit}>
           <H1>Reserve</H1>
-          <Input type="text" name={currentUser.name} placeholder="user" aria-label="name" value={currentUser.name} readOnly />
+          <Input type="text" name={currentUser?.name} placeholder="user" aria-label="name" value={currentUser?.name} readOnly />
           <select
             aria-label="Select label"
             value={carId}
