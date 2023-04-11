@@ -3,7 +3,7 @@
 import { Link } from 'react-router-dom';
 
 const Car = ({
-  id, name, model, image_url, description,
+  id, name, model, image_url,
 }) => (
   <Link id={id} to={`cars/${id}`}>
     <div className="car-card">
@@ -15,9 +15,6 @@ const Car = ({
         <div className="model">
           {model}
         </div>
-        <p className="description">
-          {description}
-        </p>
       </div>
     </div>
   </Link>
