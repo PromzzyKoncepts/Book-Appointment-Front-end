@@ -12,22 +12,25 @@ import {
   Form, FormBtn, FormDiv, H1, Input,
 } from '../Styles';
 
-const Reserve = () => {
+const Book = () => {
   const cars = useSelector(allCars);
+  const selectedCarId = useSelector((state) => state.cars.carId);
+  const selectedCarArr = cars.filter((car) => car.id === selectedCarId);
+
+  const carObject = { ...selectedCarArr };
 
   const currentUserData = JSON.parse(localStorage.getItem('user'));
   const currentUser = currentUserData.user;
 
   const [pickupDate, setPickupDate] = useState(new Date());
   const [returnDate, setReturnDate] = useState(new Date());
-  const [carId, setCarId] = useState(1);
 
   const [reservationData, setreservationData] = useState({
     pickup_date: pickupDate,
     return_date: returnDate,
     city: '',
     user_id: currentUser.id,
-    car_id: carId,
+    car_id: selectedCarId,
   });
 
   const navigate = useNavigate();
@@ -52,16 +55,6 @@ const Reserve = () => {
     });
   };
 
-  console.log(reservationData);
-
-  const handleCarIdChange = (e) => {
-    setCarId(e.target.value);
-    setreservationData({
-      ...reservationData,
-      car_id: carId,
-    });
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -74,24 +67,14 @@ const Reserve = () => {
       <H1>Reserve</H1>
       <Form onSubmit={handleSubmit}>
         <Input type="text" name={currentUser.name} placeholder="user" aria-label="name" value={currentUser.name} readOnly />
-        <select
-          aria-label="Select label"
-          value={carId}
-          onChange={handleCarIdChange}
-        >
-          { Array.isArray(cars) && cars?.map((car) => (
-            <option key={car.id} value={car.id}>
-              {car.name}
-            </option>
-          ))}
-        </select>
+        <Input type="text" name={carObject[0].name} placeholder="car name" aria-label="car name" value={carObject[0].name} readOnly />
         <DatePicker onChange={setPickupDate} value={pickupDate} />
         <DatePicker onChange={setReturnDate} value={returnDate} />
-        <Input type="text" placeholder="Add your city" aria-label="city" name="city" value={city} onChange={onInputChange} required />
+        <Input type="text" aria-label="city" placeholder="Add your city" name="city" value={city} onChange={onInputChange} required />
         <FormBtn type="submit">Reserve Now</FormBtn>
       </Form>
     </FormDiv>
   );
 };
 
-export default Reserve;
+export default Book;

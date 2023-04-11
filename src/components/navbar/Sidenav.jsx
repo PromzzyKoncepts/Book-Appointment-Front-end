@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import Proptypes from 'prop-types';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
-import SettingsIcon from '@mui/icons-material/Settings';
 import navData from './navData';
 
 import styles from './sidenav.module.css';
@@ -29,7 +29,7 @@ export default function Sidenav({ isLoggedIn, setIsLoggedIn }) {
 
   const loginTab = {
     id: 5,
-    icon: <SettingsIcon />,
+    icon: <PersonAddIcon />,
     text: isLoggedIn ? 'Logout' : 'Login',
     link: isLoggedIn ? '/' : '/login',
     onClick: isLoggedIn ? () => logout() : () => navigateToLogin(),
