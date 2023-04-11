@@ -16,7 +16,7 @@ const Reserve = () => {
   const cars = useSelector(allCars);
 
   const currentUserData = JSON.parse(localStorage.getItem('user'));
-  const currentUser = currentUserData.user;
+  const currentUser = currentUserData?.user;
 
   const [pickupDate, setPickupDate] = useState(new Date());
   const [returnDate, setReturnDate] = useState(new Date());
@@ -26,7 +26,7 @@ const Reserve = () => {
     pickup_date: pickupDate,
     return_date: returnDate,
     city: '',
-    user_id: currentUser.id,
+    user_id: currentUser?.id,
     car_id: carId,
   });
 
@@ -72,7 +72,7 @@ const Reserve = () => {
       <FormDiv>
         <Form onSubmit={handleSubmit}>
           <H1>Reserve</H1>
-          <Input type="text" name={currentUser.name} placeholder="user" aria-label="name" value={currentUser.name} readOnly />
+          <Input type="text" name={currentUser?.name} placeholder="user" aria-label="name" value={currentUser?.name} readOnly />
           <select
             aria-label="Select label"
             value={carId}

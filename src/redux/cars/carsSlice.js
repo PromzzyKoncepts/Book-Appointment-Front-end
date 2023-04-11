@@ -67,7 +67,6 @@ const carSlice = createSlice({
   initialState,
   reducers: {
     getCarId: (state, action) => {
-      console.log(action.payload);
       state.carId = action.payload;
     },
   },

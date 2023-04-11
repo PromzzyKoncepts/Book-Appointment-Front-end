@@ -29,7 +29,7 @@ const Book = () => {
     pickup_date: pickupDate,
     return_date: returnDate,
     city: '',
-    user_id: currentUser.id,
+    user_id: currentUser?.id,
     car_id: selectedCarId,
   });
 

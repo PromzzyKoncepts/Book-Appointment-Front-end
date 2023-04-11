@@ -10,6 +10,8 @@
     "@reduxjs/toolkit": "^1.8.5",
     "axios": "^1.3.4",
     "bootstrap": "^5.2.2",
+    "jest-localstorage-mock": "^2.4.26",
+    "polyfill": "^0.1.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
@@ -55,6 +57,9 @@
       "last 1 safari version"
     ]
   },
+  "jest": {
+    "resetMocks": false
+  },
   "devDependencies": {
     "@babel/core": "^7.21.4",
     "@babel/eslint-parser": "^7.21.3",
@@ -71,6 +76,7 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "jest": "^27.5.1",
+    "jest-environment-jsdom": "^29.5.0",
     "postcss": "8.4.x",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^21.0.0",
