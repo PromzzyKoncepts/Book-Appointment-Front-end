@@ -34,7 +34,6 @@ export const createCar = createAsyncThunk(CREATE_CAR, async (
     const response = await addCar(carData);
     toast.success('Car created successfully!');
     navigate('/');
-    console.log(response.data);
     return response.data;
   } catch (error) {
     return rejectWithValue(error.response.data);
@@ -48,7 +47,6 @@ export const removeCar = createAsyncThunk(DELETE_CAR, async (
     const response = await deteleCar(id);
     toast.success('Car deleted successfully!');
     navigate('/');
-    console.log(response.data);
     return response.data;
   } catch (error) {
     return rejectWithValue(error.response.data);
