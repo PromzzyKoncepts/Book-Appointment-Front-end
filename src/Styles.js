@@ -10,6 +10,7 @@ export const Form = styled.form`
   flex-direction: column;
   width: 60%;
   padding: 1rem;
+  border-radius: 9px;
   gap: 1rem;
   @media screen and (max-width: 768px) {
       padding: 1.5rem;
@@ -20,9 +21,9 @@ export const Form = styled.form`
 export const FormDiv = styled.div`
   display: flex;
   justify-content: center;
-  height: 80vh;
-  width: 80%;
   align-items: center;
+  width: 60%;
+  border-radius: 9px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 `
 
@@ -31,6 +32,12 @@ export const Input = styled.input`
   border: none;
   border-bottom: 1px solid black;
   padding: 0.5rem;
+  @media screen and (max-width: 767px) {
+      width: 100%;
+  }
+`
+export const Label = styled.label`
+font-size: 12px;
   @media screen and (max-width: 767px) {
       width: 100%;
   }
@@ -57,8 +64,6 @@ export const FormBtn = styled.button`
 `
 
 export const H1 = styled.h1`
-  color: #7272df;
-  margin-bottom: 1rem;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
   font-size: 24px;
