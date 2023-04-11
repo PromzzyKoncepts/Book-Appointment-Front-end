@@ -6,6 +6,7 @@ import Proptypes from 'prop-types';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 import LogoutIcon from '@mui/icons-material/Logout';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import navData from './navData';
 import Regal from '../../assets/regal.png';
 import styles from './sidenav.module.css';
@@ -14,6 +15,16 @@ export default function Sidenav({ isLoggedIn, setIsLoggedIn }) {
   const [open, setopen] = useState(true);
   const toggleOpen = () => {
     setopen(!open);
+  };
+
+  const currentUserData = JSON.parse(localStorage.getItem('user'));
+  const currentUser = currentUserData?.user;
+  const displayCurrUser = {
+    id: 0,
+    icon: <AccountCircleIcon />,
+    text: currentUser.name,
+    link: '/',
+    isProtected: true,
   };
 
   const logout = () => {
@@ -28,7 +39,7 @@ export default function Sidenav({ isLoggedIn, setIsLoggedIn }) {
   };
 
   const loginTab = {
-    id: 5,
+    id: 6,
     icon: <LogoutIcon />,
     text: isLoggedIn ? 'Logout' : 'Login',
     link: isLoggedIn ? '/' : '/login',
@@ -36,7 +47,7 @@ export default function Sidenav({ isLoggedIn, setIsLoggedIn }) {
     isProtected: false,
   };
 
-  const tabsToDisplay = [...navData, loginTab].filter((tab) => {
+  const tabsToDisplay = [displayCurrUser, ...navData, loginTab].filter((tab) => {
     if (isLoggedIn) return tab;
     return !tab.isProtected;
   });

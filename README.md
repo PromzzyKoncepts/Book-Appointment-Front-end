@@ -203,19 +203,25 @@ Example:
 
 ## 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
+## 👥 Authors (3 Micronauts) <a name="authors"></a>
 
-👤 **Author1**
+👤 **Aamir Khan**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@aamirkhan2478](https://github.com/aamirkhan2478)
+- Twitter: [@SmartKhan2478](https://twitter.com/SmartKhan2478)
+- LinkedIn: [Aamir Khan](https://www.linkedin.com/in/aamir-khan-302a44237/)
 
-👤 **Author2**
+👤 **Ndikumana Isaie**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [ndikumanaisaie](https://github.com/ndikumanaisaie)
+- Twitter: [Ndikuma38670724](https://twitter.com/Ndikuma38670724)
+- LinkedIn: [Ndikumana Isaie](https://www.linkedin.com/in/ndikumanaisaie/)
+
+👤 **Abdullah Khan**
+
+- GitHub: [@Abdullah](https://github.com/Abdullah2213565)
+- Twitter: [@Abdullah](https://twitter.com/dulakhan024)
+- LinkedIn: [@Abdullah](https://www.linkedin.com/in/abdullah-khan2002/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -225,9 +231,8 @@ Example:
 
 > Describe 1 - 3 features you will add to the project.
 
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+- [ ] **[Add an admin role for users to add and delete a car]**
+- [ ] **[Add more styling to the page and more action for users]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
