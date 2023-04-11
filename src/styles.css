@@ -65,3 +65,13 @@
   border: none;
   cursor: pointer;
 }
+
+.select-car {
+  width: 80%;
+}
+
+@media screen and (max-width: 768px) {
+  .select-car {
+    width: 100%;
+  }
+}

@@ -76,6 +76,7 @@ const Reserve = () => {
           <select
             aria-label="Select label"
             value={carId}
+            className="select-car"
             onChange={handleCarIdChange}
           >
             {Array.isArray(cars) && cars?.map((car) => (
@@ -85,11 +86,11 @@ const Reserve = () => {
             ))}
           </select>
           <Label>Enter start-up date</Label>
-          <DatePicker onChange={setPickupDate} value={pickupDate} />
+          <DatePicker className="select-car" onChange={setPickupDate} value={pickupDate} />
           <Label>Enter Return date</Label>
-          <DatePicker onChange={setReturnDate} value={returnDate} />
+          <DatePicker className="select-car" onChange={setReturnDate} value={returnDate} />
           <Label>Enter your city</Label>
-          <Input type="text" aria-label="city" name="city" value={city} onChange={onInputChange} placeholder="Enter you" required />
+          <Input type="text" aria-label="city" name="city" value={city} onChange={onInputChange} required />
           <FormBtn type="submit">Reserve Now</FormBtn>
         </Form>
       </FormDiv>

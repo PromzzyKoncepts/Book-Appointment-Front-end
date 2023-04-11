@@ -3,7 +3,8 @@
   width: 15%;
   transition: width 0.3s ease-in-out;
   height: 100vh;
-  background-color: rgb(155, 191, 37);
+  background-color:#fff;
+  border-right: 1px solid grey;
   padding-top: 20px;
 }
 
@@ -28,7 +29,7 @@
   align-items: center;
   padding: 10px 20px;
   cursor: pointer;
-  color: rgb(255, 255, 255);
+  color: black;
   text-decoration: none;
   overflow: hidden;
 }
@@ -38,16 +39,23 @@
 }
 
 .sideitem:hover {
-  background-color: #244f7d1c;
+  background-color: #60b524;
 }
 
 .menuBtn {
   align-self: center;
   align-self: flex-start;
   justify-self: flex-end;
-  color: rgb(255, 255, 255);
+  color: black;
   background-color: transparent;
   border: none;
   cursor: pointer;
   padding-left: 20px;
+}
+
+@media screen and (max-width: 768px){
+  .logo {
+    width: 83%;
+    margin-left: 5px;
+  }
 }

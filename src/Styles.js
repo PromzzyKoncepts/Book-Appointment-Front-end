@@ -18,6 +18,7 @@ export const Form = styled.form`
   }
 `;
 
+// background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 export const FormDiv = styled.div`
   display: flex;
   justify-content: center;
@@ -25,6 +26,10 @@ export const FormDiv = styled.div`
   width: 60%;
   border-radius: 9px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    border-radius: 0px;
+  }
 `
 
 export const Input = styled.input`
