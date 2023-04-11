@@ -4,20 +4,20 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { render } from '@testing-library/react';
 import store from '../redux/configureStore';
 import '@testing-library/jest-dom/';
-import Home from '../pages/Home';
+import Login from '../components/auth/Login';
 
-describe('Home Page', () => {
-  test('Should render the proper Home Page', () => {
-    const homePage = render(
+describe('Login component', () => {
+  test('Should render the proper CarDetails component', () => {
+    const loginComponent = render(
       <React.StrictMode>
         <Provider store={store}>
           <Router>
-            <Home />
+            <Login />
           </Router>
         </Provider>
         ,
       </React.StrictMode>,
     );
-    expect(homePage).toMatchSnapshot();
+    expect(loginComponent).toMatchSnapshot();
   });
 });

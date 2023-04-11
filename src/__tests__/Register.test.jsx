@@ -4,20 +4,20 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { render } from '@testing-library/react';
 import store from '../redux/configureStore';
 import '@testing-library/jest-dom/';
-import Home from '../pages/Home';
+import Register from '../components/auth/Register';
 
-describe('Home Page', () => {
-  test('Should render the proper Home Page', () => {
-    const homePage = render(
+describe('Register component', () => {
+  test('Should render the proper Register component', () => {
+    const registercomponent = render(
       <React.StrictMode>
         <Provider store={store}>
           <Router>
-            <Home />
+            <Register />
           </Router>
         </Provider>
         ,
       </React.StrictMode>,
     );
-    expect(homePage).toMatchSnapshot();
+    expect(registercomponent).toMatchSnapshot();
   });
 });
