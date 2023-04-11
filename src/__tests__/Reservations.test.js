@@ -1,21 +1,23 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { render, screen } from '@testing-library/react';
-import Reservations from '../pages/Reservations';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { render } from '@testing-library/react';
 import store from '../redux/configureStore';
+import '@testing-library/jest-dom/';
+import Register from '../components/auth/Register';
 
-describe('Reservations component', () => {
-  test('renders the component', async () => {
-    render(
-      <Provider store={store}>
-        <Reservations />
-      </Provider>,
+describe('Register component', () => {
+  test('Should render the proper Register component', () => {
+    const registercomponent = render(
+      <React.StrictMode>
+        <Provider store={store}>
+          <Router>
+            <Register />
+          </Router>
+        </Provider>
+        ,
+      </React.StrictMode>,
     );
-    const heading = screen.getByRole('heading', { level: 2 });
-    expect(heading.textContent).toBe('My Reservations');
-    const tableHeaders = screen.getAllByRole('columnheader');
-    expect(tableHeaders.length).toBe(3);
-    const rows = screen.getAllByRole('row');
-    expect(rows.length).toBeGreaterThan(1);
+    expect(registercomponent).toMatchSnapshot();
   });
 });

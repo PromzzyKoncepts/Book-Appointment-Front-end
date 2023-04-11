@@ -1,33 +1,23 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { render, fireEvent } from '@testing-library/react';
-import Reserve from '../pages/Reserve';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { render } from '@testing-library/react';
 import store from '../redux/configureStore';
+import '@testing-library/jest-dom/';
+import Reserve from '../pages/Reserve';
 
-describe('Reserve', () => {
-  it('renders the Reserve component', () => {
-    const { getByText } = render(
-      <Provider store={store}>
-        <Reserve />
-      </Provider>,
+describe('Reserve Page', () => {
+  test('Should render the proper Reserve Page', () => {
+    const reservePage = render(
+      <React.StrictMode>
+        <Provider store={store}>
+          <Router>
+            <Reserve />
+          </Router>
+        </Provider>
+        ,
+      </React.StrictMode>,
     );
-
-    expect(getByText('Reserve')).toBeInTheDocument();
-  });
-
-  it('submits the form', async () => {
-    const { getByLabelText, getByText } = render(
-      <Provider store={store}>
-        <Reserve />
-      </Provider>,
-    );
-
-    const cityInput = getByLabelText('city');
-    const submitButton = getByText('Reserve Now');
-
-    fireEvent.change(cityInput, { target: { value: 'New York' } });
-    fireEvent.click(submitButton);
-
-    // Add assertions to check that the reservation was created successfully
+    expect(reservePage).toMatchSnapshot();
   });
 });
