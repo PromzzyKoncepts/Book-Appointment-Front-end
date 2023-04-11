@@ -20,7 +20,7 @@ const Book = () => {
   const carObject = { ...selectedCarArr };
 
   const currentUserData = JSON.parse(localStorage.getItem('user'));
-  const currentUser = currentUserData.user;
+  const currentUser = currentUserData?.user;
 
   const [pickupDate, setPickupDate] = useState(new Date());
   const [returnDate, setReturnDate] = useState(new Date());
@@ -29,7 +29,7 @@ const Book = () => {
     pickup_date: pickupDate,
     return_date: returnDate,
     city: '',
-    user_id: currentUser.id,
+    user_id: currentUser?.id,
     car_id: selectedCarId,
   });
 
@@ -66,8 +66,8 @@ const Book = () => {
     <FormDiv>
       <H1>Reserve</H1>
       <Form onSubmit={handleSubmit}>
-        <Input type="text" name={currentUser.name} placeholder="user" aria-label="name" value={currentUser.name} readOnly />
-        <Input type="text" name={carObject[0].name} placeholder="car name" aria-label="car name" value={carObject[0].name} readOnly />
+        <Input type="text" name={currentUser?.name} placeholder="user" aria-label="name" value={currentUser?.name} readOnly />
+        <Input type="text" name={carObject[0]?.name} placeholder="car name" aria-label="car name" value={carObject[0]?.name} readOnly />
         <DatePicker onChange={setPickupDate} value={pickupDate} />
         <DatePicker onChange={setReturnDate} value={returnDate} />
         <Input type="text" aria-label="city" placeholder="Add your city" name="city" value={city} onChange={onInputChange} required />
