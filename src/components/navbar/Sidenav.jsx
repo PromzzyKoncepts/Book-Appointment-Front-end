@@ -16,17 +16,16 @@ export default function Sidenav({ isLoggedIn, setIsLoggedIn }) {
   const toggleOpen = () => {
     setopen(!open);
   };
-  
+
   const currentUserData = JSON.parse(localStorage.getItem('user'));
   const currentUser = currentUserData?.user;
-  console.log(currentUser, "this is the current user")
   const displayCurrUser = {
     id: 0,
     icon: <AccountCircleIcon />,
     text: currentUser.name,
     link: '/',
     isProtected: true,
-  }
+  };
 
   const logout = () => {
     localStorage.removeItem('token');
