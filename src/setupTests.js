@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 const polyfill = require('polyfill');
 require('jest-localstorage-mock');
 
