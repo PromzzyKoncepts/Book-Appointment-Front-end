@@ -6,35 +6,35 @@ import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 
 export default [
   {
-    id: 0,
+    id: 1,
     icon: <HomeIcon />,
     text: 'Home',
     link: '/',
     isProtected: false,
   },
   {
-    id: 1,
+    id: 2,
     icon: <AddIcon />,
     text: 'Add New Car',
     link: 'add_car',
     isProtected: true,
   },
   {
-    id: 2,
+    id: 3,
     icon: <DeleteIcon />,
     text: 'Delete a Car',
     link: 'delete_car',
     isProtected: true,
   },
   {
-    id: 3,
+    id: 4,
     icon: <LibraryBooksIcon />,
     text: 'Reservations',
     link: 'reservations',
     isProtected: true,
   },
   {
-    id: 4,
+    id: 5,
     icon: <LibraryAddIcon />,
     text: 'Reserve',
     link: 'reserve',
