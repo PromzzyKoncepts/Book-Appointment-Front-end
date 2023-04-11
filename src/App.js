@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Home from './pages/Home';
 import Sidenav from './components/navbar/Sidenav';
 import AddCar from './pages/AddCar';
+import Book from './pages/book';
 import DeleteCar from './pages/DeleteCar';
 import Reservations from './pages/Reservations';
 import Reserve from './pages/Reserve';
@@ -34,6 +35,7 @@ function App() {
               ? (
                 <>
                   <Route exact path="/cars/:id" exactly element={<CarDetails />} />
+                  <Route exact path="/book_car" exactly element={<Book />} />
                   <Route path="/add_car" element={<AddCar />} />
                   <Route path="/delete_car" element={<DeleteCar />} />
                   <Route path="/reservations" element={<Reservations />} />

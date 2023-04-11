@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { fetchCar, car } from '../redux/cars/carsSlice';
+import { fetchCar,getCarId, car } from '../redux/cars/carsSlice';
 
 const CarDetails = () => {
   const dispatch = useDispatch();
@@ -13,59 +13,53 @@ const CarDetails = () => {
     dispatch(fetchCar(carId));
   }, [dispatch]);
 
+  const handleClick = () => {
+    dispatch(getCarId(carId));
+  };
+
   return (
     <>
-      <div className="car_container" key={cardetails.id}>
-        <div className="card-left">
-          <h2><span className="span"> </span>{cardetails.name}</h2>
-          <img src={cardetails.image_url} alt={cardetails.name} />
-        </div>
+      <div className="car-container" key={cardetails.id}>
+        <img src={cardetails.image_url} alt={cardetails.name} />
         <div className="car_details">
           <div className="car-header">
-            <p><strong>Model:</strong> {cardetails.model}</p>
-            <p className="car-description">{cardetails.description}</p>
+            <h2>{cardetails.name}</h2>
+            <p>{cardetails.description}</p>
           </div>
-          <h3><span className="span"> </span>Specifications</h3>
-          <div className="specifications">
-            <div className="total-amount fee">
-              <p><strong>Rent Price:</strong> $ {cardetails.price}</p>
-              <p></p>
-            </div>
-            <div className="finance fee">
-              <p>Finance: $199</p>
-            </div>
-            <div className="option-fee">
-              <p>Damages: $199</p>
-            </div>
-            <div className="duration">
-              <p>Duration: 48 Months</p>
-              <p></p>
-            </div>
-            <div className="availability">
-              <p>Availability: {cardetails.reserved === false ? (
+          <div className="space-between fee">
+            <p>Finance Fee</p>
+            <p>$139</p>
+          </div>
+          <div className="space-between">
+            <p>Option to purchase Fee</p>
+            <p>$249</p>
+          </div>
+          <div className="space-between fee">
+            <p>Total amount payable</p>
+            <p>{cardetails.price}</p>
+          </div>
+          <div className="space-between">
+            <p>Duration</p>
+            <p>48 Months</p>
+          </div>
+          <div className="space-between">
+            <p>Availability:</p>
+            <p>
+              {cardetails.reserved === false ? (
                 <span>Not available</span>
               ) : (
                 <span>available</span>
-              )}</p>
-            </div>
+              )}
+            </p>
           </div>
-            <div className="total-amount fee">
-              <h3>Total: ${cardetails.price + 199 + 299}</h3>
-            </div>
-          <div className="reserve">
-            <Link to="/reservations">
-              <button
-                type="button"
-                className="reserve-btn"
-              >
-                Reserve
-              </button>
-            </Link>
+          <div className="more-model">
+            <span className="desc_short">We can satisfy your desire!</span>
           </div>
-          <Link to="/reservations" className="btn">
+          <Link to="/book_car" className="btn">
             <button
               type="button"
               className="reserve"
+              onClick={handleClick}
             >
               Reserve
             </button>

@@ -1,8 +1,8 @@
 import HomeIcon from '@mui/icons-material/Home';
-import TravelExploreIcon from '@mui/icons-material/TravelExplore';
-import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
-import BookmarksIcon from '@mui/icons-material/Bookmarks';
 import DeleteIcon from '@mui/icons-material/Delete';
+import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
+import AddIcon from '@mui/icons-material/Add';
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 
 export default [
   {
@@ -14,7 +14,7 @@ export default [
   },
   {
     id: 1,
-    icon: <TravelExploreIcon />,
+    icon: <AddIcon />,
     text: 'Add New Car',
     link: 'add_car',
     isProtected: true,
@@ -28,14 +28,14 @@ export default [
   },
   {
     id: 3,
-    icon: <BookmarksIcon />,
+    icon: <LibraryBooksIcon />,
     text: 'Reservations',
     link: 'reservations',
     isProtected: true,
   },
   {
     id: 4,
-    icon: <BookmarkAddIcon />,
+    icon: <LibraryAddIcon />,
     text: 'Reserve',
     link: 'reserve',
     isProtected: true,
