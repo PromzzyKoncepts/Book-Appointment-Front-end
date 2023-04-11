@@ -65,7 +65,7 @@ const Book = () => {
   return (
     <FormDiv>
       <Form onSubmit={handleSubmit}>
-      <H1>Reserve</H1>
+        <H1>Reserve</H1>
         <Input type="text" name={currentUser?.name} placeholder="user" aria-label="name" value={currentUser?.name} readOnly />
         <Input type="text" name={carObject[0]?.name} placeholder="car name" aria-label="car name" value={carObject[0]?.name} readOnly />
         <DatePicker onChange={setPickupDate} value={pickupDate} />
