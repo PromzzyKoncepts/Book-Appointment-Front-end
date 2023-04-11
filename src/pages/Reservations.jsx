@@ -23,12 +23,12 @@ const Reservations = () => {
   }
 
   return (
-    <div className="my-reservations-container">
+    <div className="reservations-container">
       <h2>My Reservations</h2>
       {reservations?.length === 0 ? (
         <p>You do not have any reservations yet.</p>
       ) : (
-        <table>
+        <table className="reservation-table">
           <thead>
             <tr>
               <th>City</th>

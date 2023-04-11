@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 import { allCars } from '../redux/cars/carsSlice';
 import { createReservation } from '../redux/reservations/reservationsSlice';
 import {
-  Form, FormBtn, FormDiv, H1, Input,
+  Form, FormBtn, FormDiv, H1, Input, Label,
 } from '../Styles';
 
 const Reserve = () => {
@@ -52,8 +52,6 @@ const Reserve = () => {
     });
   };
 
-  console.log(reservationData);
-
   const handleCarIdChange = (e) => {
     setCarId(e.target.value);
     setreservationData({
@@ -70,27 +68,33 @@ const Reserve = () => {
   };
 
   return (
-    <FormDiv>
-      <H1>Reserve</H1>
-      <Form onSubmit={handleSubmit}>
-        <Input type="text" name={currentUser?.name} placeholder="user" aria-label="name" value={currentUser?.name} readOnly />
-        <select
-          aria-label="Select label"
-          value={carId}
-          onChange={handleCarIdChange}
-        >
-          { Array.isArray(cars) && cars?.map((car) => (
-            <option key={car.id} value={car.id}>
-              {car.name}
-            </option>
-          ))}
-        </select>
-        <DatePicker onChange={setPickupDate} value={pickupDate} />
-        <DatePicker onChange={setReturnDate} value={returnDate} />
-        <Input type="text" aria-label="city" name="city" value={city} onChange={onInputChange} required />
-        <FormBtn type="submit">Reserve Now</FormBtn>
-      </Form>
-    </FormDiv>
+    <>
+      <FormDiv>
+        <Form onSubmit={handleSubmit}>
+          <H1>Reserve</H1>
+          <Input type="text" name={currentUser.name} placeholder="user" aria-label="name" value={currentUser.name} readOnly />
+          <select
+            aria-label="Select label"
+            value={carId}
+            className="select-car"
+            onChange={handleCarIdChange}
+          >
+            {Array.isArray(cars) && cars?.map((car) => (
+              <option key={car.id} value={car.id}>
+                {car.name}
+              </option>
+            ))}
+          </select>
+          <Label>Enter start-up date</Label>
+          <DatePicker className="select-car" onChange={setPickupDate} value={pickupDate} />
+          <Label>Enter Return date</Label>
+          <DatePicker className="select-car" onChange={setReturnDate} value={returnDate} />
+          <Label>Enter your city</Label>
+          <Input type="text" aria-label="city" name="city" value={city} onChange={onInputChange} required />
+          <FormBtn type="submit">Reserve Now</FormBtn>
+        </Form>
+      </FormDiv>
+    </>
   );
 };
 

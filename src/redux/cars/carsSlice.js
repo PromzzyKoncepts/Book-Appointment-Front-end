@@ -34,7 +34,6 @@ export const createCar = createAsyncThunk(CREATE_CAR, async (
     const response = await addCar(carData);
     toast.success('Car created successfully!');
     navigate('/');
-    console.log(response.data);
     return response.data;
   } catch (error) {
     return rejectWithValue(error.response.data);
@@ -48,7 +47,6 @@ export const removeCar = createAsyncThunk(DELETE_CAR, async (
     const response = await deteleCar(id);
     toast.success('Car deleted successfully!');
     navigate('/');
-    console.log(response.data);
     return response.data;
   } catch (error) {
     return rejectWithValue(error.response.data);
@@ -57,6 +55,7 @@ export const removeCar = createAsyncThunk(DELETE_CAR, async (
 
 const initialState = {
   car: {},
+  carId: 0,
   allCars: [],
   loading: 'idle', // 'idle' | 'loading' | 'succeeded' | 'failed'
   message: '',
@@ -66,7 +65,12 @@ const initialState = {
 const carSlice = createSlice({
   name: 'cars',
   initialState,
-  reducers: {},
+  reducers: {
+    getCarId: (state, action) => {
+      console.log(action.payload);
+      state.carId = action.payload;
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(fetchCars.pending, (state) => ({ ...state, loading: 'loading' }))
@@ -113,5 +117,6 @@ export const isLoading = (state) => state.cars.loading;
 export const message = (state) => state.cars.message;
 export const allCars = (state) => state.cars.allCars;
 export const car = (state) => state.cars.car;
+export const { getCarId } = carSlice.actions;
 
 export default carSlice.reducer;

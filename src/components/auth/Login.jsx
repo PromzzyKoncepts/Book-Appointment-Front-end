@@ -34,11 +34,9 @@ const Login = ({ setIsLoggedIn }) => {
       }, navigate)
     } catch (err) {
       dispatch(loginFailure)
-      console.error(err);
       setErr(err.response.data.message)
     }
 
-    console.log(loginUser());
     
   };
   if (isLoggedIn) {
