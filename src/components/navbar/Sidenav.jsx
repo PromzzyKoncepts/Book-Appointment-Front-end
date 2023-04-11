@@ -2,12 +2,12 @@
 
 import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import Proptypes from 'prop-types';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
+import LogoutIcon from '@mui/icons-material/Logout';
 import navData from './navData';
-
+import Regal from '../../assets/regal.png';
 import styles from './sidenav.module.css';
 
 export default function Sidenav({ isLoggedIn, setIsLoggedIn }) {
@@ -29,7 +29,7 @@ export default function Sidenav({ isLoggedIn, setIsLoggedIn }) {
 
   const loginTab = {
     id: 5,
-    icon: <PersonAddIcon />,
+    icon: <LogoutIcon />,
     text: isLoggedIn ? 'Logout' : 'Login',
     link: isLoggedIn ? '/' : '/login',
     onClick: isLoggedIn ? () => logout() : () => navigateToLogin(),
@@ -43,6 +43,7 @@ export default function Sidenav({ isLoggedIn, setIsLoggedIn }) {
 
   return (
     <div className={open ? styles.sidenav : styles.sidenavClosed}>
+      <img src={Regal} alt="logo" className={open ? styles.logo : styles.logoClosed} />
       <button type="button" className={styles.menuBtn} onClick={toggleOpen}>
         {open ? <KeyboardDoubleArrowLeftIcon /> : <KeyboardDoubleArrowRightIcon />}
       </button>

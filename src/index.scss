@@ -15,7 +15,6 @@
   display: flex;
   justify-content: center;
   width: 85%;
-  border: 2px solid red;
 }
 
 .home-container {
@@ -23,7 +22,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 2px solid gray;
 
   img {
     width: 250px;
@@ -178,6 +176,28 @@
       border: none;
       outline: none;
       border-radius: 45px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .car-container {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    img {
+      width: 82%;
+      height: 50%;
+      display: block;
+      object-fit: contain;
+      margin-left: 0;
     }
   }
 }
