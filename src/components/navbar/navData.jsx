@@ -1,8 +1,8 @@
 import HomeIcon from '@mui/icons-material/Home';
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
-import BarChartIcon from '@mui/icons-material/BarChart';
-import SettingsIcon from '@mui/icons-material/Settings';
-// import { logout } from '.../redux/apiCalls';
+import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
+import BookmarksIcon from '@mui/icons-material/Bookmarks';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export default [
   {
@@ -21,21 +21,21 @@ export default [
   },
   {
     id: 2,
-    icon: <BarChartIcon />,
+    icon: <DeleteIcon />,
     text: 'Delete a Car',
     link: 'delete_car',
     isProtected: true,
   },
   {
     id: 3,
-    icon: <SettingsIcon />,
+    icon: <BookmarksIcon />,
     text: 'Reservations',
     link: 'reservations',
     isProtected: true,
   },
   {
     id: 4,
-    icon: <SettingsIcon />,
+    icon: <BookmarkAddIcon />,
     text: 'Reserve',
     link: 'reserve',
     isProtected: true,
