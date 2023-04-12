@@ -5,7 +5,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { render } from '@testing-library/react';
 import store from '../redux/configureStore';
 import '@testing-library/jest-dom/';
-import Book from '../pages/Book';
+import Book from '../pages/book';
 
 describe('Book Page', () => {
   test('Should render the proper Book Page', () => {
