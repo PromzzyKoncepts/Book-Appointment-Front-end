@@ -49,7 +49,7 @@ Object {
                   name="date"
                   style="visibility: hidden; position: absolute; z-index: -999;"
                   type="date"
-                  value="2023-04-11"
+                  value="2023-04-12"
                 />
                 <input
                   autocomplete="off"
@@ -78,7 +78,7 @@ Object {
                   name="day"
                   placeholder="--"
                   type="number"
-                  value="11"
+                  value="12"
                 />
                 <span
                   class="react-date-picker__inputGroup__divider"
@@ -183,7 +183,7 @@ Object {
                   name="date"
                   style="visibility: hidden; position: absolute; z-index: -999;"
                   type="date"
-                  value="2023-04-11"
+                  value="2023-04-12"
                 />
                 <input
                   autocomplete="off"
@@ -212,7 +212,7 @@ Object {
                   name="day"
                   placeholder="--"
                   type="number"
-                  value="11"
+                  value="12"
                 />
                 <span
                   class="react-date-picker__inputGroup__divider"
@@ -365,7 +365,7 @@ Object {
                 name="date"
                 style="visibility: hidden; position: absolute; z-index: -999;"
                 type="date"
-                value="2023-04-11"
+                value="2023-04-12"
               />
               <input
                 autocomplete="off"
@@ -394,7 +394,7 @@ Object {
                 name="day"
                 placeholder="--"
                 type="number"
-                value="11"
+                value="12"
               />
               <span
                 class="react-date-picker__inputGroup__divider"
@@ -499,7 +499,7 @@ Object {
                 name="date"
                 style="visibility: hidden; position: absolute; z-index: -999;"
                 type="date"
-                value="2023-04-11"
+                value="2023-04-12"
               />
               <input
                 autocomplete="off"
@@ -528,7 +528,7 @@ Object {
                 name="day"
                 placeholder="--"
                 type="number"
-                value="11"
+                value="12"
               />
               <span
                 class="react-date-picker__inputGroup__divider"

@@ -37,6 +37,15 @@ Object {
           class="sideitem active"
           href="/"
         >
+          <span
+            class="linkText"
+          />
+        </a>
+        <a
+          aria-current="page"
+          class="sideitem active"
+          href="/"
+        >
           <svg
             aria-hidden="true"
             class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
@@ -107,6 +116,15 @@ Object {
           />
         </svg>
       </button>
+      <a
+        aria-current="page"
+        class="sideitem active"
+        href="/"
+      >
+        <span
+          class="linkText"
+        />
+      </a>
       <a
         aria-current="page"
         class="sideitem active"

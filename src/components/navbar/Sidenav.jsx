@@ -17,15 +17,19 @@ export default function Sidenav({ isLoggedIn, setIsLoggedIn }) {
     setopen(!open);
   };
 
-  const currentUserData = JSON.parse(localStorage.getItem('user'));
-  const currentUser = currentUserData?.user;
-  const displayCurrUser = {
-    id: 0,
-    icon: <AccountCircleIcon />,
-    text: currentUser.name,
-    link: '/',
-    isProtected: true,
-  };
+  let displayCurrUser = {};
+
+  if (isLoggedIn) {
+    const currentUserData = JSON.parse(localStorage.getItem('user'));
+    const currentUser = currentUserData?.user;
+    displayCurrUser = {
+      id: 0,
+      icon: <AccountCircleIcon />,
+      text: currentUser.name,
+      link: '/',
+      isProtected: true,
+    };
+  }
 
   const logout = () => {
     localStorage.removeItem('token');
