@@ -1,0 +1,77 @@
+.car_container {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.card-left img {
+  width: 650px;
+}
+
+.card-left,
+.car_details {
+  width: 100%;
+}
+
+.card-left h2 {
+  background-color: #f4f4f4;
+  margin-bottom: 5px;
+}
+
+.car_details {
+  background-color: #f4f4f4;
+  height: 84%;
+  padding: 8px;
+}
+
+.car-description {
+  overflow-y: scroll;
+  height: 200px;
+  background-color: #fff;
+  padding: 8px;
+  font-size: 12px;
+}
+
+.specifications {
+  background-color: #fff;
+  padding: 0 7px;
+}
+
+.car_details h3 {
+  background-color: #e6e6e6;
+  margin-top: 13px;
+}
+
+.span {
+  background-color: brown;
+  padding: 2px;
+  height: 2px;
+  margin-right: 5px;
+}
+
+.reserve a {
+  display: flex;
+  width: 30%;
+  margin: 5px auto;
+}
+
+.reserve-btn {
+  padding: 8px 11px;
+  background-color: brown;
+  color: #f4f4f4;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.select-car {
+  width: 80%;
+}
+
+@media screen and (max-width: 768px) {
+  .select-car {
+    width: 100%;
+  }
+}

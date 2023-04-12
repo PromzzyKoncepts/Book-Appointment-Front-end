@@ -1,0 +1,332 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.App {
+  display: flex;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  width: 85%;
+  border: 2px solid red;
+}
+
+.home-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid gray;
+}
+
+.home-container img {
+  width: 250px;
+  height: 250px;
+  -o-object-fit: contain;
+  object-fit: contain;
+  border-radius: 100%;
+}
+
+.home-container a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.home-container h1 {
+  text-transform: uppercase;
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.home-container h5 {
+  color: #838383;
+  font-size: 12px;
+}
+
+.home-container .cards-container {
+  width: 80%;
+  margin-top: 3rem;
+  border: 2px solid grey;
+  border-radius: 0.5rem;
+}
+
+.home-container .cards-container .caroussel_row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-container .cards-container .car-card {
+  height: 90%;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 767px) {
+  .home-container {
+    width: 88%;
+    position: relative;
+    padding-top: 3rem;
+    right: 0;
+  }
+
+  .home-container .car-card {
+    height: 210px;
+  }
+
+  .home-container .car-card .descript {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .home-container .cards-container .caroussel_row {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.car-container {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.car-container img {
+  width: 62%;
+  height: 50%;
+  display: block;
+  -o-object-fit: contain;
+  object-fit: contain;
+  margin-left: 0;
+}
+
+.car-container .car_details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.car-container .car_details .car-header {
+  margin-bottom: 1rem;
+  align-self: flex-end;
+}
+
+.car-container .car_details .car-header h2 {
+  margin-bottom: 0.8rem;
+  font-size: 3.5rem;
+  text-transform: uppercase;
+}
+
+.car-container .car_details .car-header p {
+  color: #9f9f9f;
+  font-size: 12px;
+}
+
+.car-container .car_details .space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.car-container .car_details .fee {
+  background-color: #9f9f9f;
+  color: black;
+  padding: 0.5rem;
+}
+
+.car-container .car_details .desc_short {
+  color: #9f9f9f;
+  font-size: 12px;
+}
+
+.car-container .car_details .btn {
+  display: flex;
+  text-decoration: none;
+  justify-content: flex-end;
+}
+
+.car-container .car_details .reserve {
+  width: 140px;
+  height: 45px;
+  font-size: 16px;
+  color: #fff;
+  background-color: rgb(155, 191, 37);
+  border: none;
+  outline: none;
+  border-radius: 45px;
+}
+
+.description {
+  color: #525a3a;
+  font-size: 14px;
+  font-style: italic;
+  text-align: center;
+  margin: 2rem;
+}
+
+.delete-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.2rem;
+}
+
+.delete-section .car-container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.delete-section .car-container .car-card {
+  width: 45%;
+  height: 165px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 0;
+  gap: 1.2rem;
+  padding: 0.9rem;
+  border: 1px solid gray;
+  border-radius: 1rem;
+}
+
+.delete-section .car-container .car-card img {
+  width: 60%;
+  height: 50%;
+}
+
+.delete-section .car-container .car-card .car-detail {
+  display: flex;
+  gap: 4rem;
+}
+
+.delete-section .car-container .car-card .car-detail p {
+  font-size: 18px;
+  color: #838383;
+}
+
+.delete-section .car-container .car-card .car-detail button {
+  width: 120px;
+  height: 40px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  background-color: rgb(255, 85, 85);
+  border: none;
+  outline: none;
+  border-radius: 45px;
+}
+
+@media screen and (max-width: 640px) {
+  .delete-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+
+  .delete-section .car-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .delete-section .car-container .car-card {
+    width: 100%;
+    height: 165px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+    gap: 1.2rem;
+    padding: 0.9rem;
+    border: 1px solid gray;
+    border-radius: 1rem;
+  }
+
+  .delete-section .car-container .car-card img {
+    width: 60%;
+    height: 50%;
+  }
+
+  .delete-section .car-container .car-card .car-detail {
+    display: flex;
+    gap: 2.8rem;
+  }
+
+  .delete-section .car-container .car-card .car-detail p {
+    font-size: 15px;
+    color: #838383;
+  }
+
+  .delete-section .car-container .car-card .car-detail button {
+    width: 100px;
+    height: 35px;
+    font-size: 15px;
+    color: #fff;
+    cursor: pointer;
+    background-color: rgb(255, 85, 85);
+    border: none;
+    outline: none;
+    border-radius: 45px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .car_container {
+    width: 100%;
+    right: 0%;
+    flex-direction: column;
+  }
+
+  .car_container img {
+    margin-top: 1.8rem;
+    width: 50%;
+  }
+
+  .car_container .car_details {
+    width: 95%;
+    position: relative;
+  }
+
+  .car_container .car_details h2 {
+    margin-bottom: 0.2rem;
+  }
+
+  .car_container .car_details .desc_short {
+    position: absolute;
+    left: 12px;
+    bottom: 2rem;
+  }
+
+  .car_container .car_details .reserve {
+    margin-top: 0.5rem;
+  }
+}
