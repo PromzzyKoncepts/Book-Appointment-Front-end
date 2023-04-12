@@ -93,7 +93,7 @@
 
 <!-- React Frontend -->
 ## <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/539px-React-icon.svg.png" width="23" height="20"/> React Frontend <a name="react-frontend"></a>
-- Here is the Frontend part of the project [Front End](https://github.com/PromzzyKoncepts/Book-Appointment-Front-end)
+- Here is the Backend part of the project [Back end](https://github.com/PromzzyKoncepts/Book-Appointment-App.git)
 
 ## 🚀 kanban board <a name="board"></a>
 
@@ -114,15 +114,18 @@ To get a local copy up and running, follow these steps.
 
 To run this project you need:
 `vscode` and `node`
-```
- gem install rails
-```
 
 ### Install
-
+```
+ npx create-react-app
+```
 ### Usage
 
 To run the project, execute the following command:
+
+```
+ git clone https://github.com/PromzzyKoncepts/Book-Appointment-Front-end.git
+```
 
 ```sh
    npm start ##  then go to localhost:3000
