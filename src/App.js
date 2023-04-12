@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Home from './pages/Home';
 import Sidenav from './components/navbar/Sidenav';
 import AddCar from './pages/AddCar';
-import Book from './pages/Book';
+import Book from './pages/book';
 import DeleteCar from './pages/DeleteCar';
 import Reservations from './pages/Reservations';
 import Reserve from './pages/Reserve';
@@ -13,7 +13,7 @@ import CarDetails from './components/CarDetails';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 
-function App() {
+const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const token = localStorage.getItem('token');
@@ -54,6 +54,6 @@ function App() {
       <ToastContainer />
     </div>
   );
-}
+};
 
 export default App;
