@@ -13,7 +13,7 @@ import CarDetails from './components/CarDetails';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 
-function App() {
+const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const token = localStorage.getItem('token');

@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-export function SampleNextArrow(props) {
+export const SampleNextArrow = (props) => {
   const {
     className, style, onClick, onKeyPressHandler,
   } = props;
@@ -33,7 +33,7 @@ export function SampleNextArrow(props) {
   );
 }
 
-export function SamplePrevArrow(props) {
+export const SamplePrevArrow = (props) => {
   const {
     className, style, onClick, onKeyPressHandler,
   } = props;

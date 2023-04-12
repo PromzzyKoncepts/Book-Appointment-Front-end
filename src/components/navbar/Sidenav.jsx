@@ -11,7 +11,7 @@ import navData from './navData';
 import Regal from '../../assets/regal.png';
 import styles from './sidenav.module.css';
 
-export default function Sidenav({ isLoggedIn, setIsLoggedIn }) {
+export default const Sidenav = ({ isLoggedIn, setIsLoggedIn }) => {
   const [open, setopen] = useState(true);
   const toggleOpen = () => {
     setopen(!open);
