@@ -1,40 +1,13 @@
 <a name="readme-top"></a>
 
-<!--
-HOW TO USE:
-This is an example of how you may give instructions on setting up your project locally.
-
-Modify this file to match your project and remove sections that don't apply.
-
-REQUIRED SECTIONS:
-- Table of Contents
-- About the Project
-  - Built With
-  - Live Demo
-- Getting Started
-- Authors
-- Future Features
-- Contributing
-- Show your support
-- Acknowledgements
-- License
-
-OPTIONAL SECTIONS:
-- FAQ
-
-After you're finished please remove all the comments and instructions!
--->
-
 <div align="center">
-  <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
-  <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
-  <br/>
 
-  <h3><b>Microverse README Template</b></h3>
+  <img src="https://user-images.githubusercontent.com/84629565/202665566-ba1a8ed3-041f-45bc-b21b-efdcc357189b.png" alt="logo" width="140"  height="auto" />
+  <br/>
 
 </div>
 
-<!--TABLE OF CONTENTS-->
+<!-- TABLE OF CONTENTS -->
 
 # 📗 Table of Contents
 
@@ -42,7 +15,13 @@ After you're finished please remove all the comments and instructions!
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+    - [Website Mockup 📱 💻 🖥️](#screenshots)
+    - [🖺 Entity Relationship Diagram](#er-diagram)
+  - [<img src="https://cdn-icons-png.flaticon.com/512/5360/5360804.png" width="23" height="20"/> Kanban Board](#kanban-board)
+  - [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/539px-React-icon.svg.png" width="23" height="20"/> React Frontend](#react-frontend)
+  - [<img src="https://emojipedia-us.s3.amazonaws.com/source/microsoft-teams/337/spiral-notepad_1f5d2-fe0f.png" width="23" height="20"/> API Documentation](#api-docs)
   - [🚀 Live Demo](#live-demo)
+  
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -55,22 +34,20 @@ After you're finished please remove all the comments and instructions!
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ (OPTIONAL)](#faq)
+- [❓ FAQ](#faq)
 - [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [your_project_name] <a name="about-project"></a>
+# 📖 Regal Cars Backend <a name="about-project"></a>
+![homepage](https://user-images.githubusercontent.com/54780027/231420790-2eb788b4-5260-417e-b2e1-d47ff7cc14b7.PNG)
 
-> Describe your project in 1 or 2 sentences.
 
-**[your_project__name]** is a...
+**Regal Cars** is car rental application where the user can create accounts, log in and reserve a set of different cars. It is built and connected by using two different repos: Back-end(Rails) and Front-end(React/Redux).
 
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
-
-> Describe the tech stack and include only the relevant sections that apply to your project.
 
 <details>
   <summary>Client</summary>
@@ -82,7 +59,7 @@ After you're finished please remove all the comments and instructions!
 <details>
   <summary>Server</summary>
   <ul>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
+    <li>Rails</li>
   </ul>
 </details>
 
@@ -97,119 +74,76 @@ After you're finished please remove all the comments and instructions!
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
-
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
+- **[Car List endpoints]**
+- **[Authentication to access Reservations]**
+- **[Authenticated Users can add/remove a Car]**
+- **[Authenticated Users can reserve a Car]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LIVE DEMO -->
+<!-- API Docs -->
+
+![API docs](https://user-images.githubusercontent.com/54780027/231417300-1e05901f-da89-4475-b7f6-a17102811dda.PNG)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- ER DIAGRAM-->
+## :card_index: Entity Relationship Diagram <a name="er-diagram"></a>
+![erd](https://user-images.githubusercontent.com/54780027/231417553-6cf720cb-76db-47f9-8923-3b7c8af175f9.PNG)
+
+<!-- React Frontend -->
+## <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/539px-React-icon.svg.png" width="23" height="20"/> React Frontend <a name="react-frontend"></a>
+- Here is the Frontend part of the project [Front End](https://github.com/PromzzyKoncepts/Book-Appointment-Front-end)
+
+## 🚀 kanban board <a name="board"></a>
+
+- Here is the kanban board of the project
+- ![kanban board](https://user-images.githubusercontent.com/54780027/231417798-2c94099c-f01a-478a-b9c4-3f76d9276478.PNG)
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Add a link to your deployed project.
-
-- [Live Demo Link](https://google.com)
+- [Live Demo :rocket:](https://regal.netlify.app/) :smiley:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
-
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> Describe how a new developer could make use of your project.
-
 To get a local copy up and running, follow these steps.
-
 ### Prerequisites
 
-In order to run this project you need:
-
-<!--
-Example command:
-
-```sh
+To run this project you need:
+`vscode` and `node`
+```
  gem install rails
 ```
- -->
-
-### Setup
-
-Clone this repository to your desired folder:
-
-<!--
-Example commands:
-
-```sh
-  cd my-folder
-  git clone git@github.com:myaccount/my-project.git
-```
---->
 
 ### Install
-
-Install this project with:
-
-<!--
-Example command:
-
-```sh
-  cd my-project
-  gem install
-```
---->
 
 ### Usage
 
 To run the project, execute the following command:
 
-<!--
-Example command:
-
 ```sh
-  rails server
+   npm start ##  then go to localhost:3000
 ```
---->
 
-### Run tests
-
-To run tests, run the following command:
-
-<!--
-Example command:
-
-```sh
-  bin/rails test test/models/article_test.rb
+Run tests
 ```
---->
-
-### Deployment
-
-You can deploy this project using:
-
-<!--
-Example:
-
-```sh
-
+npm test
 ```
- -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
 
-## 👥 Authors <a name="authors"></a>
-
-## 👥 Authors (3 Micronauts) <a name="authors"></a>
+## 👥 Authors (4 Micronauts) <a name="authors"></a>
 
 👤 **Aamir Khan**
 
-- GitHub: [@aamirkhan2478](https://github.com/aamirkhan2478)
-- Twitter: [@SmartKhan2478](https://twitter.com/SmartKhan2478)
-- LinkedIn: [Aamir Khan](https://www.linkedin.com/in/aamir-khan-302a44237/)
+- GitHub: [@promzzykoncepts](https://github.com/PromzzyKoncepts)
+- Twitter: [@pr0mzzy](https://twitter.com/prOmzzy)
+- LinkedIn: [promiseokechukwu](https://www.linkedin.com/in/promiseokechukwu/)
 
 👤 **Ndikumana Isaie**
 
@@ -229,10 +163,8 @@ Example:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> Describe 1 - 3 features you will add to the project.
-
-- [ ] **[Add an admin role for users to add and delete a car]**
-- [ ] **[Add more styling to the page and more action for users]**
+- [ ] **[Admin Roles and access to add New lux Cars]**
+- [ ] **[Keep count of cars using addtional attribute]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -250,9 +182,7 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
-
-If you like this project...
+Give a ⭐️ if you like this project!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -260,34 +190,34 @@ If you like this project...
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Give credit to everyone who inspired your codebase.
-
-I would like to thank...
+I would like to thank:
+- [Microverse](https://www.microverse.org/)
+- Code Reviewers
+- Many thanks to [Murat Korkmaz](https://www.behance.net/muratk) for the wonderful design
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FAQ (optional) -->
 
-## ❓ FAQ (OPTIONAL) <a name="faq"></a>
+## ❓ FAQ <a name="faq"></a>
 
-> Add at least 2 questions new developers would ask when they decide to use your project.
+- **How I can install react**
 
-- **[Question_1]**
+  - You can follow the [official guide](https://react.dev/learn) to install react. If you have node installed, you can run `npx create-react-app` to install react.
 
-  - [Answer_1]
+- **How to run project?**
 
-- **[Question_2]**
+  - After cloning the repository, run `npm i` and then run `nmp start`. This will run the server on `localhost:3000`. You can change the port number if you want.
 
-  - [Answer_2]
-
+- **How I can run tests?**
+  
+    - After cloning the repository, run `npm test` to run the tests. 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
+This project is [MIT](./MIT.md) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

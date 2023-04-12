@@ -25,7 +25,7 @@ export const FormDiv = styled.div`
   align-items: center;
   width: 60%;
   border-radius: 9px;
-  background: linear-gradient(135deg, #9bbf25 0%, #000 100%);
+  background: linear-gradient(150deg, #889854 0%, #fff 100%);
   @media screen and (max-width: 767px) {
     width: 100%;
     border-radius: 0px;
