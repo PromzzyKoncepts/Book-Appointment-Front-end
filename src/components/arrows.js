@@ -31,7 +31,7 @@ export const SampleNextArrow = (props) => {
       Prev
     </div>
   );
-}
+};
 
 export const SamplePrevArrow = (props) => {
   const {
@@ -63,4 +63,4 @@ export const SamplePrevArrow = (props) => {
 
     </div>
   );
-}
+};

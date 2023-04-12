@@ -54,6 +54,6 @@ const App = () => {
       <ToastContainer />
     </div>
   );
-}
+};
 
 export default App;
