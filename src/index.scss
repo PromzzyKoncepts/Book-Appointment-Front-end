@@ -172,7 +172,7 @@
       font-size: 16px;
       cursor: pointer;
       color: #fff;
-      background-color: rgb(155, 191, 37);
+      background-color: #9bbf25;
       border: none;
       outline: none;
       border-radius: 45px;
@@ -267,7 +267,7 @@
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 768px) {
   .delete-section {
     width: 100%;
     display: flex;
@@ -292,7 +292,7 @@
         margin-left: 0;
         gap: 1.2rem;
         padding: 0.9rem;
-        border: 1px solid gray;
+        border-bottom: 1px solid gray;
         border-radius: 1rem;
 
         img {

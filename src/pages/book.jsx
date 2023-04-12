@@ -65,9 +65,9 @@ const Book = () => {
   return (
     <FormDiv>
       <Form onSubmit={handleSubmit}>
-        <H1>Reserve</H1>
-        <Input type="text" name={currentUser?.name} placeholder="user" aria-label="name" value={currentUser?.name} readOnly />
-        <Input type="text" name={carObject[0]?.name} placeholder="car name" aria-label="car name" value={carObject[0]?.name} readOnly />
+        <H1>Book a car</H1>
+        <Input type="text" name={currentUser?.name} placeholder="user" aria-label="name" disabled value={currentUser?.name} readOnly />
+        <Input type="text" name={carObject[0]?.name} placeholder="car name" aria-label="car name" disabled value={carObject[0]?.name} readOnly />
         <DatePicker className="select-car" onChange={setPickupDate} value={pickupDate} />
         <DatePicker className="select-car" onChange={setReturnDate} value={returnDate} />
         <Input type="text" aria-label="city" placeholder="Add your city" name="city" value={city} onChange={onInputChange} required />
