@@ -102,7 +102,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo :rocket:](https://regal.netlify.app/) :smiley:
+- [Live Demo :rocket:](https://regal.netlify.app/) :smiley: # COMING SOON!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -119,7 +119,7 @@ To run this project you need:
 ```
  npx create-react-app
 ```
-### Usage
+### Usage || Clone
 
 To run the project, execute the following command:
 
@@ -127,8 +127,12 @@ To run the project, execute the following command:
  git clone https://github.com/PromzzyKoncepts/Book-Appointment-Front-end.git
 ```
 
+```
+ npm install
+```
+
 ```sh
-   npm start ##  then go to localhost:3000
+   npm start ##  then go to localhost:8080
 ```
 
 Run tests
@@ -142,7 +146,7 @@ npm test
 
 ## 👥 Authors (4 Micronauts) <a name="authors"></a>
 
-👤 **Aamir Khan**
+👤 **PROMISE OKECHUKWU**
 
 - GitHub: [@promzzykoncepts](https://github.com/PromzzyKoncepts)
 - Twitter: [@pr0mzzy](https://twitter.com/prOmzzy)
@@ -210,7 +214,7 @@ I would like to thank:
 
 - **How to run project?**
 
-  - After cloning the repository, run `npm i` and then run `nmp start`. This will run the server on `localhost:3000`. You can change the port number if you want.
+  - After cloning the repository, run `npm i` and then run `nmp start`. This will run the server on `localhost:8080`. You can change the port number if you want.
 
 - **How I can run tests?**
   
