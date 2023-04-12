@@ -138,6 +138,10 @@ To run the project, execute the following command:
 Run tests
 ```
 npm test
+
+# if you see any snapshots already created in __tests__ folder, 
+#kindly DELETE the snapshot folder before running test, ELSE run npm test
+
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
