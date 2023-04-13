@@ -64,6 +64,7 @@ const Reserve = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setReserved(!reserved);
+    console.log(reserved);
     dispatch(isReserved(reserved));
     dispatch(createReservation({ reservationData, navigate, toast }));
     handleClear();

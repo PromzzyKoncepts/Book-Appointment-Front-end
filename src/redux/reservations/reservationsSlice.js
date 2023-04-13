@@ -43,7 +43,7 @@ const reservationsSlice = createSlice({
     isReserved: (state, action) => {
       state.reserved = action.payload;
       console.log(action.payload);
-    }
+    },
   },
   extraReducers(builder) {
     builder
