@@ -2,7 +2,9 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { toast } from 'react-toastify';
-import { isLoading, fetchReservations, removeReservation } from '../redux/reservations/reservationsSlice';
+import {
+  isLoading, isReserved, fetchReservations, removeReservation,
+} from '../redux/reservations/reservationsSlice';
 import { allCars } from '../redux/cars/carsSlice';
 import Spinner from '../components/Spinner';
 
@@ -24,6 +26,8 @@ const Reservations = () => {
   }, [dispatch]);
 
   const handleDelete = (id) => {
+    const reserved = false;
+    dispatch(isReserved(reserved));
     dispatch(removeReservation({ id, toast }));
   };
 
