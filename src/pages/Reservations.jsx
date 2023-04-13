@@ -1,10 +1,17 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { isLoading, fetchReservations } from '../redux/reservations/reservationsSlice';
+import { allCars } from '../redux/cars/carsSlice';
 import Spinner from '../components/Spinner';
 
 const Reservations = () => {
   const reservations = useSelector((state) => state.reservations.allReservations);
+  const selectedCarId = useSelector(allCars);
+  const cars = useSelector((state) => state.cars.allCars);
+  const selectedCar = cars.find((car) => car.id === selectedCarId);
+
+  console.log(selectedCar);
+
   const loading = useSelector(isLoading);
   const currentUserData = JSON.parse(localStorage.getItem('user'));
   const currentUser = currentUserData?.user;

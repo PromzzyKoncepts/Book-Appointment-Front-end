@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import DatePicker from 'react-date-picker';
 import 'react-date-picker/dist/DatePicker.css';
 import { toast } from 'react-toastify';
-import { allCars } from '../redux/cars/carsSlice';
+import { allCars, getCarId } from '../redux/cars/carsSlice';
 import { createReservation, isReserved } from '../redux/reservations/reservationsSlice';
 import {
   Form, FormBtn, FormDiv, H1, Input, Label,
@@ -21,7 +21,6 @@ const Reserve = () => {
   const [pickupDate, setPickupDate] = useState(new Date());
   const [returnDate, setReturnDate] = useState(new Date());
   const [carId, setCarId] = useState(1);
-  const [reserved, setReserved] = useState(false);
 
   const [reservationData, setreservationData] = useState({
     pickup_date: pickupDate,
@@ -55,6 +54,7 @@ const Reserve = () => {
 
   const handleCarIdChange = (e) => {
     setCarId(e.target.value);
+    dispatch(getCarId(carId));
     setreservationData({
       ...reservationData,
       car_id: carId,
@@ -63,9 +63,8 @@ const Reserve = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setReserved(!reserved);
-    console.log(reserved);
-    dispatch(isReserved(reserved));
+    const reserve = true;
+    dispatch(isReserved(reserve));
     dispatch(createReservation({ reservationData, navigate, toast }));
     handleClear();
   };
