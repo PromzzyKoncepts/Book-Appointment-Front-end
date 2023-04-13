@@ -7,7 +7,7 @@ import DatePicker from 'react-date-picker';
 import 'react-date-picker/dist/DatePicker.css';
 import { toast } from 'react-toastify';
 import { allCars } from '../redux/cars/carsSlice';
-import { createReservation } from '../redux/reservations/reservationsSlice';
+import { createReservation, isReserved } from '../redux/reservations/reservationsSlice';
 import {
   Form, FormBtn, FormDiv, H1, Input, Label,
 } from '../Styles';
@@ -21,6 +21,7 @@ const Reserve = () => {
   const [pickupDate, setPickupDate] = useState(new Date());
   const [returnDate, setReturnDate] = useState(new Date());
   const [carId, setCarId] = useState(1);
+  const [reserved, setReserved] = useState(false);
 
   const [reservationData, setreservationData] = useState({
     pickup_date: pickupDate,
@@ -62,7 +63,8 @@ const Reserve = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
+    setReserved(!reserved);
+    dispatch(isReserved(reserved));
     dispatch(createReservation({ reservationData, navigate, toast }));
     handleClear();
   };

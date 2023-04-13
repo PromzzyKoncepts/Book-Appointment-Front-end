@@ -14,15 +14,6 @@ export const fetchReservations = createAsyncThunk(FETCH_RESERVATIONS, async () =
   }
 });
 
-// export const fetchCar = createAsyncThunk(FETCH_CAR, async (id) => {
-//   try {
-//     const response = await getCar(id);
-//     return response.data;
-//   } catch (error) {
-//     return error.response.data;
-//   }
-// });
-
 export const createReservation = createAsyncThunk(ADD_RESERVATION, async (
   { reservationData, navigate, toast },
   { rejectWithValue },
@@ -42,12 +33,18 @@ const initialState = {
   loading: 'idle', // 'idle' | 'loading' | 'succeeded' | 'failed'
   message: '',
   error: null,
+  reserved: false,
 };
 
 const reservationsSlice = createSlice({
   name: 'reservations',
   initialState,
-  reducers: {},
+  reducers: {
+    isReserved: (state, action) => {
+      state.reserved = action.payload;
+      console.log(action.payload);
+    }
+  },
   extraReducers(builder) {
     builder
       .addCase(fetchReservations.pending, (state) => ({ ...state, loading: 'loading' }))
@@ -75,5 +72,6 @@ const reservationsSlice = createSlice({
 export const isLoading = (state) => state.reservations.loading;
 export const message = (state) => state.reservations.message;
 export const allReservations = (state) => state.reservations.allReservaions;
+export const { isReserved } = reservationsSlice.actions;
 
 export default reservationsSlice.reducer;
