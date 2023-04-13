@@ -15,9 +15,7 @@ import {
 const Book = () => {
   const cars = useSelector(allCars);
   const selectedCarId = useSelector((state) => state.cars.carId);
-  const selectedCarArr = cars.filter((car) => car.id === selectedCarId);
-
-  const carObject = { ...selectedCarArr };
+  const selectedCar = cars.find((car) => car.id === selectedCarId);
 
   const currentUserData = JSON.parse(localStorage.getItem('user'));
   const currentUser = currentUserData?.user;
@@ -67,7 +65,7 @@ const Book = () => {
       <Form onSubmit={handleSubmit}>
         <H1>Book a car</H1>
         <Input type="text" name={currentUser?.name} placeholder="user" aria-label="name" disabled value={currentUser?.name} readOnly />
-        <Input type="text" name={carObject[0]?.name} placeholder="car name" aria-label="car name" disabled value={carObject[0]?.name} readOnly />
+        <Input type="text" name={selectedCar.name} placeholder="car name" aria-label="car name" disabled value={selectedCar.name} readOnly />
         <DatePicker className="select-car" onChange={setPickupDate} value={pickupDate} />
         <DatePicker className="select-car" onChange={setReturnDate} value={returnDate} />
         <Input type="text" aria-label="city" placeholder="Add your city" name="city" value={city} onChange={onInputChange} required />
