@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { toast } from 'react-toastify';
 import {
-  isLoading, isReserved, fetchReservations, removeReservation,
+  isLoading, fetchReservations, removeReservation,
 } from '../redux/reservations/reservationsSlice';
-import { allCars } from '../redux/cars/carsSlice';
+import { allCars, updateReserved } from '../redux/cars/carsSlice';
 import Spinner from '../components/Spinner';
 
 const Reservations = () => {
@@ -26,8 +26,10 @@ const Reservations = () => {
   }, [dispatch]);
 
   const handleDelete = (id) => {
-    const reserved = false;
-    dispatch(isReserved(reserved));
+    const carToUpdate = cars.find((car) => car.id === id);
+    const carId = carToUpdate.id;
+    const updatedCarData = { ...carToUpdate, reserved: false };
+    dispatch(updateReserved({ updatedCarData, carId }));
     dispatch(removeReservation({ id, toast }));
   };
 
