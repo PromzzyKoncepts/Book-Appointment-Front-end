@@ -121,10 +121,10 @@ const carSlice = createSlice({
         error: action.error.message,
       }))
       .addCase(updateReserved.pending, (state) => {
-        state.loading = true;
+        state.loading = 'loading';
       })
       .addCase(updateReserved.fulfilled, (state, action) => {
-        state.loading = false;
+        state.loading = 'succeeded';
         const { arg: { id } } = action.meta;
         if (id) {
           state.allCars = state.allCars
@@ -132,7 +132,7 @@ const carSlice = createSlice({
         }
       })
       .addCase(updateReserved.rejected, (state, action) => {
-        state.isLoading = false;
+        state.loading = 'failed';
         state.error = action.payload.message;
       });
   },
