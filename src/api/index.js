@@ -11,3 +11,4 @@ export const addCar = (car) => API.post('/cars', car);
 // Reservation code
 export const addReservation = (reservation) => API.post('/reservations', reservation);
 export const getReservations = () => API.get('/reservations');
+export const deteleReservation = (id) => API.delete(`/reservations/${id}`);

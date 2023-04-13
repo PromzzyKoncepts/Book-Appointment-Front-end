@@ -30,6 +30,8 @@ const Reserve = () => {
     car_id: carId,
   });
 
+  console.log(carId);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -55,10 +57,6 @@ const Reserve = () => {
   const handleCarIdChange = (e) => {
     setCarId(e.target.value);
     dispatch(getCarId(carId));
-    setreservationData({
-      ...reservationData,
-      car_id: carId,
-    });
   };
 
   const handleSubmit = (event) => {

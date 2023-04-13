@@ -377,6 +377,13 @@
     padding: 8px;
   }
 
+  .delete-reservation {
+    color: red;
+    cursor: pointer;
+    background-color: #fff;
+    border: none;
+  }
+
   .reservation-table tr:nth-child(even) { background-color: #f2f2f2; }
 
   .reservation-table tr:hover { background-color: #ddd; }

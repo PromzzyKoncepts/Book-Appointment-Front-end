@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { isLoading, fetchReservations } from '../redux/reservations/reservationsSlice';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { toast } from 'react-toastify';
+import { isLoading, fetchReservations, removeReservation } from '../redux/reservations/reservationsSlice';
 import { allCars } from '../redux/cars/carsSlice';
 import Spinner from '../components/Spinner';
 
 const Reservations = () => {
   const reservations = useSelector((state) => state.reservations.allReservations);
-  const selectedCarId = useSelector(allCars);
-  const cars = useSelector((state) => state.cars.allCars);
-  const selectedCar = cars.find((car) => car.id === selectedCarId);
+  const cars = useSelector(allCars);
 
-  console.log(selectedCar);
+  const dispatch = useDispatch();
 
   const loading = useSelector(isLoading);
   const currentUserData = JSON.parse(localStorage.getItem('user'));
@@ -18,10 +18,14 @@ const Reservations = () => {
   const userReservations = reservations.filter(
     (reservation) => reservation.user_id === currentUser.id,
   );
-  const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchReservations());
   }, [dispatch]);
+
+  const handleDelete = (id) => {
+    dispatch(removeReservation({ id, toast }));
+  };
 
   if (loading === 'loading') {
     return (
@@ -38,17 +42,22 @@ const Reservations = () => {
         <table className="reservation-table">
           <thead>
             <tr>
+              <th>Name</th>
               <th>City</th>
               <th>Pickup Date</th>
               <th>Return Date</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
             {Array.isArray(userReservations) && userReservations.map((reservation) => (
               <tr key={reservation.id}>
+                <td>{cars.find((car) => car.id === reservation.car_id)?.name}</td>
                 <td>{reservation.city}</td>
                 <td>{reservation.pickup_date}</td>
                 <td>{reservation.return_date}</td>
+                {/* eslint-disable-next-line */}
+                <td><button type="button" value="Delete" className="delete-reservation" onClick={() => handleDelete(reservation.id)}><DeleteIcon /></button></td>
               </tr>
             ))}
           </tbody>

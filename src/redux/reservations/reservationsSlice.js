@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getReservations, addReservation } from '../../api/index';
+import { getReservations, addReservation, deteleReservation } from '../../api/index';
 
 const FETCH_RESERVATIONS = 'reservations/RESERVATIONS';
 const ADD_RESERVATION = 'reservations/ADD_RESERVATION';
-// const DELETE_RESERVATION = 'reservations/RESERVATION';
+const DELETE_RESERVATION = 'reservations/RESERVATION';
 
 export const fetchReservations = createAsyncThunk(FETCH_RESERVATIONS, async () => {
   try {
@@ -22,6 +22,19 @@ export const createReservation = createAsyncThunk(ADD_RESERVATION, async (
     const response = await addReservation(reservationData);
     toast.success('Reservation created successfully!');
     navigate('/');
+    return response.data;
+  } catch (error) {
+    return rejectWithValue(error.response.data);
+  }
+});
+
+export const removeReservation = createAsyncThunk(DELETE_RESERVATION, async (
+  { id, toast }, { rejectWithValue },
+) => {
+  try {
+    const response = await deteleReservation(id);
+    toast.success('Reservation deleted successfully!');
+    console.log(response.data);
     return response.data;
   } catch (error) {
     return rejectWithValue(error.response.data);
@@ -56,11 +69,26 @@ const reservationsSlice = createSlice({
       .addCase(createReservation.pending, (state) => ({ ...state, loading: 'Loading' }))
       .addCase(createReservation.fulfilled, (state, action) => ({
         ...state,
-        allCars: [...state.allReservations, action.payload.data],
+        allReservations: [...state.allReservations, action.payload.data],
         message: action.payload.message,
         loading: action.payload.status,
       }))
       .addCase(createReservation.rejected, (state, action) => ({
+        ...state,
+        loading: 'Failed',
+        error: action.error.message,
+      }))
+      .addCase(removeReservation.pending, (state) => ({ ...state, loading: 'Loading' }))
+      .addCase(removeReservation.fulfilled, (state, action) => {
+        const { arg: { id } } = action.meta;
+        if (id) {
+          state.allReservations = state.allReservations
+            .filter((item) => item.id !== id);
+        }
+        state.message = action.payload.message;
+        state.loading = action.payload.status;
+      })
+      .addCase(removeReservation.rejected, (state, action) => ({
         ...state,
         loading: 'Failed',
         error: action.error.message,
