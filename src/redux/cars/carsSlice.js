@@ -18,9 +18,9 @@ export const fetchCars = createAsyncThunk(FETCH_CARS, async () => {
   }
 });
 
-export const fetchCar = createAsyncThunk(UPDATE_CAR, async ({ updatedCarData, id }) => {
+export const updateReserved = createAsyncThunk(UPDATE_CAR, async ({ updatedCarData, carId }) => {
   try {
-    const response = await updateCar(updatedCarData, id);
+    const response = await updateCar(updatedCarData, carId);
     console.log(response.data);
     return response.data;
   } catch (error) {
@@ -28,7 +28,7 @@ export const fetchCar = createAsyncThunk(UPDATE_CAR, async ({ updatedCarData, id
   }
 });
 
-export const updateReserved = createAsyncThunk(FETCH_CAR, async (id) => {
+export const fetchCar = createAsyncThunk(FETCH_CAR, async (id) => {
   try {
     const response = await getCar(id);
     return response.data;

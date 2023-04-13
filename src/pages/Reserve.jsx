@@ -6,8 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import DatePicker from 'react-date-picker';
 import 'react-date-picker/dist/DatePicker.css';
 import { toast } from 'react-toastify';
-import { allCars, getCarId } from '../redux/cars/carsSlice';
-import { createReservation, isReserved } from '../redux/reservations/reservationsSlice';
+import { allCars, getCarId, updateReserved } from '../redux/cars/carsSlice';
+import { createReservation } from '../redux/reservations/reservationsSlice';
 import {
   Form, FormBtn, FormDiv, H1, Input, Label,
 } from '../Styles';
@@ -29,6 +29,8 @@ const Reserve = () => {
     user_id: currentUser?.id,
     car_id: carId,
   });
+
+  const carToUpdate = cars.find((car) => car.id === carId);
 
   console.log(carId);
 
@@ -61,8 +63,8 @@ const Reserve = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const reserve = true;
-    dispatch(isReserved(reserve));
+    const updatedCarData = { ...carToUpdate, reserved: true };
+    dispatch(updateReserved({ updatedCarData, carId }));
     dispatch(createReservation({ reservationData, navigate, toast }));
     handleClear();
   };
