@@ -1,12 +1,13 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import {
-  getCars, addCar, getCar, deteleCar,
+  getCars, addCar, getCar, deteleCar, updateCar,
 } from '../../api/index';
 
 const FETCH_CARS = 'cars/FETCH_CARS';
 const CREATE_CAR = 'cars/CREATE_CAR';
 const DELETE_CAR = 'cars/DELETE_CAR';
 const FETCH_CAR = 'cars/FETCH_CAR';
+const UPDATE_CAR = 'cars/UPDATE_CAR';
 
 export const fetchCars = createAsyncThunk(FETCH_CARS, async () => {
   try {
@@ -17,7 +18,17 @@ export const fetchCars = createAsyncThunk(FETCH_CARS, async () => {
   }
 });
 
-export const fetchCar = createAsyncThunk(FETCH_CAR, async (id) => {
+export const fetchCar = createAsyncThunk(UPDATE_CAR, async ({ updatedCarData, id }) => {
+  try {
+    const response = await updateCar(updatedCarData, id);
+    console.log(response.data);
+    return response.data;
+  } catch (error) {
+    return error.response.data;
+  }
+});
+
+export const updateReserved = createAsyncThunk(FETCH_CAR, async (id) => {
   try {
     const response = await getCar(id);
     return response.data;
@@ -108,7 +119,22 @@ const carSlice = createSlice({
         ...state,
         loading: 'Failed',
         error: action.error.message,
-      }));
+      }))
+      .addCase(updateReserved.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(updateReserved.fulfilled, (state, action) => {
+        state.loading = false;
+        const { arg: { id } } = action.meta;
+        if (id) {
+          state.allCars = state.allCars
+            .map((car) => (car.id === id ? action.payload : car));
+        }
+      })
+      .addCase(updateReserved.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload.message;
+      });
   },
 });
 
