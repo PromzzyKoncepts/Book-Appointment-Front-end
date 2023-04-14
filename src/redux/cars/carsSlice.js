@@ -52,12 +52,11 @@ export const createCar = createAsyncThunk(CREATE_CAR, async (
 });
 
 export const removeCar = createAsyncThunk(DELETE_CAR, async (
-  { id, navigate, toast }, { rejectWithValue },
+  { id, toast }, { rejectWithValue },
 ) => {
   try {
     const response = await deteleCar(id);
     toast.success('Car deleted successfully!');
-    navigate('/');
     return response.data;
   } catch (error) {
     return rejectWithValue(error.response.data);
@@ -109,12 +108,15 @@ const carSlice = createSlice({
         error: action.error.message,
       }))
       .addCase(removeCar.pending, (state) => ({ ...state, loading: 'Loading' }))
-      .addCase(removeCar.fulfilled, (state, action) => ({
-        ...state,
-        allCars: state.allCars.filter((item) => item.id !== action.payload.id),
-        message: action.payload.message,
-        loading: action.payload.status,
-      }))
+      .addCase(removeCar.fulfilled, (state, action) => {
+        const { arg: { id } } = action.meta;
+        if (id) {
+          state.allCars = state.allCars.
+            filter((item) => item.id !== id);
+        }
+        state.message = action.payload.message;
+        state.loading = action.payload.status;
+      })
       .addCase(removeCar.rejected, (state, action) => ({
         ...state,
         loading: 'Failed',

@@ -1,5 +1,4 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { removeCar, allCars } from '../redux/cars/carsSlice';
@@ -8,10 +7,9 @@ const DeleteCar = () => {
   const cars = useSelector(allCars);
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const handleDelete = (id) => {
-    dispatch(removeCar({ id, navigate, toast }));
+    dispatch(removeCar({ id, toast }));
   };
 
   return (
