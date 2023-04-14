@@ -111,8 +111,8 @@ const carSlice = createSlice({
       .addCase(removeCar.fulfilled, (state, action) => {
         const { arg: { id } } = action.meta;
         if (id) {
-          state.allCars = state.allCars.
-            filter((item) => item.id !== id);
+          state.allCars = state.allCars
+          .filter((item) => item.id !== id);
         }
         state.message = action.payload.message;
         state.loading = action.payload.status;
