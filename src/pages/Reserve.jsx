@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import DatePicker from 'react-date-picker';
 import 'react-date-picker/dist/DatePicker.css';
+import 'react-calendar/dist/Calendar.css';
 import { toast } from 'react-toastify';
 import { allCars, getCarId, updateReserved } from '../redux/cars/carsSlice';
 import { createReservation } from '../redux/reservations/reservationsSlice';
